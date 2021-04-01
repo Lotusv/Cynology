@@ -1,0 +1,111 @@
+﻿<UserControl x:Class="KinoUI.Content.Directories.ColorTypeUC"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:telerikControls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:data="clr-namespace:KinoDataLibrary;assembly=KinoDataLibrary"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:directories="clr-namespace:KinoUI.Content.Directories"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"  Loaded="UserControl_Loaded" Unloaded="UserControl_Unloaded" >
+    <UserControl.Resources>
+        <data:KinoDataSet x:Key="kinoDataSet" />
+
+        <CollectionViewSource x:Key="colorViewSource" Source="{Binding DataContext.tbl_color, RelativeSource={RelativeSource AncestorType={x:Type directories:ColorTypeUC}}}" />
+        <CollectionViewSource x:Key="color_typeViewSource" Source="{Binding DataContext.tbl_color_type, RelativeSource={RelativeSource AncestorType={x:Type directories:ColorTypeUC}}}" />
+        <CollectionViewSource x:Key="colortypecolorViewSource"   Source="{Binding Source={StaticResource color_typeViewSource}, Path='FK_tbl_color_type_color_tbl_color_type'}" />
+    </UserControl.Resources>
+
+    <UserControl.DataContext>
+        <StaticResourceExtension ResourceKey="kinoDataSet"/>
+    </UserControl.DataContext>
+
+
+    <Grid DataContext="{StaticResource color_typeViewSource}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <telerik:RadMenu>
+                <Border BorderThickness="2" CornerRadius="2"  BorderBrush="{DynamicResource BlackGradientbrush}">
+                     <telerik:RadMenuItem  x:Name="mnuSave" Click="mnuSave_Click">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/Pages/images/apply_y.png"  />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>                   
+                </Border>
+
+
+            </telerik:RadMenu>
+        </StackPanel>
+        
+        <telerik:RadGridView x:Name="grdcolortype"  AutoGenerateColumns="False" Grid.Row="1" NewRowPosition="Top" RowStyleSelector="{StaticResource modifiedRowStyle}"
+                             ItemsSource="{Binding}" telerikControls:StyleManager.Theme="Transparent" RowValidating="gridview_RowValidating" Deleting="grdcolortype_Deleting" >
+            
+                <telerik:RadGridView.ChildTableDefinitions>
+                    <telerik:GridViewTableDefinition />
+                </telerik:RadGridView.ChildTableDefinitions>
+            
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="Color Type Name" DataMemberBinding="{Binding color_type}" Width="*" />
+                <telerik:GridViewDataColumn Header="Alias" DataMemberBinding="{Binding alias}" Width="*" />
+            </telerik:RadGridView.Columns>
+
+            <telerik:RadGridView.HierarchyChildTemplate >
+                    <DataTemplate>
+                        <StackPanel x:Name="pnlMain" Orientation="Horizontal">
+
+                        <Grid x:Name="grdColors" Margin="15,0,0,0" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"></RowDefinition>
+                                    <RowDefinition ></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <DockPanel LastChildFill="False">
+                                    <DockPanel.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="Black" Offset="0"/>
+                                            <GradientStop Color="White" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </DockPanel.Background>
+                                    <TextBlock Text="Colors" VerticalAlignment="Center" DockPanel.Dock="Left" Foreground="White" Margin="2" ></TextBlock>
+
+                                <mui:ModernButton x:Name="btnAddColor"  IconData="{StaticResource PlusIconData}" Click="OpenColorsList"
+                                                      Foreground="White" Margin="2"  DockPanel.Dock="Right"  Cursor="Hand" />
+                                </DockPanel>
+
+
+
+                            <telerik:RadGridView x:Name="radgrdColors"  AutoGenerateColumns="False"  CanUserInsertRows="True" IsReadOnly="True" ShowColumnHeaders="False"
+                                                     ShowGroupPanel="False" RowIndicatorVisibility="Collapsed"  IsFilteringAllowed="False" Loaded="grdColors_Loaded" 
+                                                         Grid.Row="1" RowStyleSelector="{StaticResource modifiedRowStyle}">
+                                    <telerik:RadGridView.Columns>
+                                    <telerik:GridViewDataColumn Header="Color" DataMemberBinding="{Binding color}" >
+                                        <!--<telerik:GridViewDataColumn.CellEditTemplate>
+                                            <DataTemplate>
+                                                <telerik:RadComboBox IsEditable="True" TextSearchMode="Contains" IsFilteringEnabled="True"
+                                                 SelectedValue="{Binding color_id,Mode=TwoWay,TargetNullValue=0}" 
+                                                 DisplayMemberPath="color" 
+                                                 SelectedValuePath="color_id" 
+                                                 ItemsSource="{Binding Source={StaticResource colorViewSource}}" />
+                                            </DataTemplate>
+                                        </telerik:GridViewDataColumn.CellEditTemplate>-->
+                                    </telerik:GridViewDataColumn>
+                                </telerik:RadGridView.Columns>
+                                </telerik:RadGridView>
+                            </Grid>
+
+                          
+                        </StackPanel>
+                    </DataTemplate>
+                </telerik:RadGridView.HierarchyChildTemplate>
+
+        </telerik:RadGridView>
+    </Grid>
+</UserControl>

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="_UpgradeWizard_Files\UpgradeWizardLog.xslt"?>
+<log>
+  <event>Get project references.</event>
+  <event action="Analyze" type="Success" name="Assembly References" path="NET\Projects\KinoUI\KinoUI\KinoUI.csproj" />
+  <event action="Analyze" type="Success" name="Assembly References" path="NET\Projects\KinoUI\KinoUI\app.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="NET\Projects\KinoUI\KinoUI\app.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="NET\Projects\KinoUI\KinoUI\app.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="NET\Projects\KinoUI\KinoUI\app.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="NET\Projects\KinoUI\KinoUI\app.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="NET\Projects\KinoUI\KinoUI\app.config" />
+  <event action="Analyze" type="Success" name="app.config" path="NET\Projects\KinoUI\KinoUI\app.config" />
+  <event action="Analyze" type="Success" name="Assembly References" path="NET\Projects\KinoUI\KinoUI\packages.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="NET\Projects\KinoUI\KinoUI\packages.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="NET\Projects\KinoUI\KinoUI\packages.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="NET\Projects\KinoUI\KinoUI\packages.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="NET\Projects\KinoUI\KinoUI\packages.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="NET\Projects\KinoUI\KinoUI\packages.config" />
+  <event action="Analyze" type="Success" name="packages.config" path="NET\Projects\KinoUI\KinoUI\packages.config" />
+  <event action="Analyze" type="Success" name="Resources.resx" path="NET\Projects\KinoUI\KinoUI\Properties\Resources.resx" />
+  <event action="Analyze" type="Success" name="KinoUI" path="NET\Projects\KinoUI\KinoUI\KinoUI.csproj" />
+  <event>Get project references.</event>
+  <event action="Analyze" type="Success" name="Assembly References" path="NET\Projects\KinoUI\KinoDataLibrary\KinoDataLibrary.csproj" />
+  <event action="Analyze" type="Success" name="Assembly References" path="NET\Projects\KinoUI\KinoDataLibrary\app.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="NET\Projects\KinoUI\KinoDataLibrary\app.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="NET\Projects\KinoUI\KinoDataLibrary\app.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="NET\Projects\KinoUI\KinoDataLibrary\app.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="NET\Projects\KinoUI\KinoDataLibrary\app.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="NET\Projects\KinoUI\KinoDataLibrary\app.config" />
+  <event action="Analyze" type="Success" name="app.config" path="NET\Projects\KinoUI\KinoDataLibrary\app.config" />
+  <event action="Analyze" type="Success" name="KinoDataLibrary" path="NET\Projects\KinoUI\KinoDataLibrary\KinoDataLibrary.csproj" />
+  <event>Get project references.</event>
+  <event action="Analyze" type="Success" name="Assembly References" path="NET\Projects\KinoUI\ModernUI\FirstFloor.ModernUI\FirstFloor.ModernUI.WPF4\FirstFloor.ModernUI.WPF4.csproj" />
+  <event action="Analyze" type="Success" name="Resources.resx" path="NET\Projects\KinoUI\ModernUI\FirstFloor.ModernUI\FirstFloor.ModernUI\Resources.resx" />
+  <event action="Analyze" type="Success" name="FirstFloor.ModernUI.WPF4" path="NET\Projects\KinoUI\ModernUI\FirstFloor.ModernUI\FirstFloor.ModernUI.WPF4\FirstFloor.ModernUI.WPF4.csproj" />
+  <event>Get project references.</event>
+  <event action="Analyze" type="Success" name="Assembly References" path="NET\Projects\KinoUI\ModernUI\FirstFloor.ModernUI\FirstFloor.ModernUI\FirstFloor.ModernUI.csproj" />
+  <event action="Analyze" type="Success" name="Resources.resx" path="NET\Projects\KinoUI\ModernUI\FirstFloor.ModernUI\FirstFloor.ModernUI\Resources.resx" />
+  <event action="Analyze" type="Success" name="FirstFloor.ModernUI" path="NET\Projects\KinoUI\ModernUI\FirstFloor.ModernUI\FirstFloor.ModernUI\FirstFloor.ModernUI.csproj" />
+  <event>Get project references.</event>
+  <event action="Analyze" type="Success" name="Assembly References" path="NET\Projects\KinoUI\InWebBrowser\InWebBrowser.csproj" />
+  <event action="Analyze" type="Success" name="Assembly References" path="NET\Projects\KinoUI\InWebBrowser\App.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="NET\Projects\KinoUI\InWebBrowser\App.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="NET\Projects\KinoUI\InWebBrowser\App.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="NET\Projects\KinoUI\InWebBrowser\App.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="NET\Projects\KinoUI\InWebBrowser\App.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="NET\Projects\KinoUI\InWebBrowser\App.config" />
+  <event action="Analyze" type="Success" name="App.config" path="NET\Projects\KinoUI\InWebBrowser\App.config" />
+  <event action="Analyze" type="Success" name="Assembly References" path="NET\Projects\KinoUI\InWebBrowser\packages.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="NET\Projects\KinoUI\InWebBrowser\packages.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="NET\Projects\KinoUI\InWebBrowser\packages.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="NET\Projects\KinoUI\InWebBrowser\packages.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="NET\Projects\KinoUI\InWebBrowser\packages.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="NET\Projects\KinoUI\InWebBrowser\packages.config" />
+  <event action="Analyze" type="Success" name="packages.config" path="NET\Projects\KinoUI\InWebBrowser\packages.config" />
+  <event action="Analyze" type="Success" name="Resources.resx" path="NET\Projects\KinoUI\InWebBrowser\Properties\Resources.resx" />
+  <event action="Analyze" type="Success" name="InWebBrowser" path="NET\Projects\KinoUI\InWebBrowser\InWebBrowser.csproj" />
+  <event>Get project references.</event>
+  <event action="Analyze" type="Success" name="Assembly References" path="NET\Projects\KinoUI\WebBrowserLib\WebBrowserLib.csproj" />
+  <event action="Analyze" type="Success" name="Assembly References" path="NET\Projects\KinoUI\WebBrowserLib\packages.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="NET\Projects\KinoUI\WebBrowserLib\packages.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="NET\Projects\KinoUI\WebBrowserLib\packages.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="NET\Projects\KinoUI\WebBrowserLib\packages.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="NET\Projects\KinoUI\WebBrowserLib\packages.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="NET\Projects\KinoUI\WebBrowserLib\packages.config" />
+  <event action="Analyze" type="Success" name="packages.config" path="NET\Projects\KinoUI\WebBrowserLib\packages.config" />
+  <event action="Analyze" type="Success" name="WebBrowserLib" path="NET\Projects\KinoUI\WebBrowserLib\WebBrowserLib.csproj" />
+  <event>Get project references.</event>
+  <event action="Analyze" type="Success" name="Assembly References" path="NET\Projects\KinoUI\ReportsClassLib\ReportsClassLib.csproj" />
+  <event action="Analyze" type="Success" name="Assembly References" path="NET\Projects\KinoUI\ReportsClassLib\app.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="NET\Projects\KinoUI\ReportsClassLib\app.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="NET\Projects\KinoUI\ReportsClassLib\app.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="NET\Projects\KinoUI\ReportsClassLib\app.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="NET\Projects\KinoUI\ReportsClassLib\app.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="NET\Projects\KinoUI\ReportsClassLib\app.config" />
+  <event action="Analyze" type="Success" name="app.config" path="NET\Projects\KinoUI\ReportsClassLib\app.config" />
+  <event action="Analyze" type="Success" name="PedigreeReport.resx" path="NET\Projects\KinoUI\ReportsClassLib\PedigreeReport.resx" />
+  <event action="Analyze" type="Success" name="Resources.resx" path="NET\Projects\KinoUI\ReportsClassLib\Properties\Resources.resx" />
+  <event action="Analyze" type="Success" name="ReportsClassLib" path="NET\Projects\KinoUI\ReportsClassLib\ReportsClassLib.csproj" />
+  <event action="Analyze" type="Success" name="KinoUI" path="NET\Projects\KinoUI\KinoUI.sln" />
+  <event action="Backup" type="Success" name="KinoUI" path="NET\Projects\KinoUI\KinoUI\KinoUI.csproj" />
+  <event action="Backup" type="Success" name="ReportsClassLib" path="NET\Projects\KinoUI\ReportsClassLib\ReportsClassLib.csproj" />
+  <event action="Upgrade" type="Success" name="Assembly References" path="NET\Projects\KinoUI\KinoUI\KinoUI.csproj" />
+  <event action="Upgrade" type="Success" name="KinoUI" path="NET\Projects\KinoUI\KinoUI\KinoUI.csproj" />
+  <event action="Upgrade" type="Success" name="Assembly References" path="NET\Projects\KinoUI\ReportsClassLib\ReportsClassLib.csproj" />
+  <event action="Upgrade" type="Success" name="PedigreeReport.resx" path="NET\Projects\KinoUI\ReportsClassLib\PedigreeReport.resx" />
+  <event action="Upgrade" type="Success" name="ReportsClassLib" path="NET\Projects\KinoUI\ReportsClassLib\ReportsClassLib.csproj" />
+  <event action="Upgrade" type="Success" name="KinoUI" path="NET\Projects\KinoUI\KinoUI.sln" />
+</log>

@@ -1,0 +1,905 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KinoReportsDataSet" targetNamespace="http://tempuri.org/KinoReportsDataSet.xsd" xmlns:mstns="http://tempuri.org/KinoReportsDataSet.xsd" xmlns="http://tempuri.org/KinoReportsDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="KinoConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="KinoConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.KinoUI.Properties.Settings.GlobalReference.Default.KinoConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_CatalogDetailsTableAdapter" GeneratorDataComponentClassName="View_CatalogDetailsTableAdapter" Name="View_CatalogDetails" UserDataComponentName="View_CatalogDetailsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="KinoConnectionString (Settings)" DbObjectName="Kino.dbo.View_CatalogDetails" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        breed_group_order, breed_group_name, FullBreedName, sex_id, agegroup_id, DogFullName, registration_status, alias, FullSexName, FullAgeGroupName, 
+                         FullRegNumer, br_date, tatoo, FullColor_name, SirName, DamName, Owner, Breeder, exhibition_id, registrationNumber, exhibition_name, date, country_name, city, 
+                         address, exhib_category
+FROM            View_CatalogDetails</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="breed_group_order" DataSetColumn="breed_group_order" />
+              <Mapping SourceColumn="breed_group_name" DataSetColumn="breed_group_name" />
+              <Mapping SourceColumn="FullBreedName" DataSetColumn="FullBreedName" />
+              <Mapping SourceColumn="sex_id" DataSetColumn="sex_id" />
+              <Mapping SourceColumn="agegroup_id" DataSetColumn="agegroup_id" />
+              <Mapping SourceColumn="DogFullName" DataSetColumn="DogFullName" />
+              <Mapping SourceColumn="registration_status" DataSetColumn="registration_status" />
+              <Mapping SourceColumn="alias" DataSetColumn="alias" />
+              <Mapping SourceColumn="FullSexName" DataSetColumn="FullSexName" />
+              <Mapping SourceColumn="FullAgeGroupName" DataSetColumn="FullAgeGroupName" />
+              <Mapping SourceColumn="FullRegNumer" DataSetColumn="FullRegNumer" />
+              <Mapping SourceColumn="br_date" DataSetColumn="br_date" />
+              <Mapping SourceColumn="tatoo" DataSetColumn="tatoo" />
+              <Mapping SourceColumn="FullColor_name" DataSetColumn="FullColor_name" />
+              <Mapping SourceColumn="SirName" DataSetColumn="SirName" />
+              <Mapping SourceColumn="DamName" DataSetColumn="DamName" />
+              <Mapping SourceColumn="Owner" DataSetColumn="Owner" />
+              <Mapping SourceColumn="Breeder" DataSetColumn="Breeder" />
+              <Mapping SourceColumn="exhibition_id" DataSetColumn="exhibition_id" />
+              <Mapping SourceColumn="registrationNumber" DataSetColumn="registrationNumber" />
+              <Mapping SourceColumn="exhibition_name" DataSetColumn="exhibition_name" />
+              <Mapping SourceColumn="date" DataSetColumn="date" />
+              <Mapping SourceColumn="country_name" DataSetColumn="country_name" />
+              <Mapping SourceColumn="city" DataSetColumn="city" />
+              <Mapping SourceColumn="address" DataSetColumn="address" />
+              <Mapping SourceColumn="exhib_category" DataSetColumn="exhib_category" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbl_organizationTableAdapter" GeneratorDataComponentClassName="tbl_organizationTableAdapter" Name="tbl_organization" UserDataComponentName="tbl_organizationTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="KinoConnectionString (Settings)" DbObjectName="Kino.dbo.tbl_organization" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        OrgName, LocalOrgName, Address, Tel, Fax, EMail, WWW, Logo
+FROM            tbl_organization</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="OrgName" DataSetColumn="OrgName" />
+              <Mapping SourceColumn="LocalOrgName" DataSetColumn="LocalOrgName" />
+              <Mapping SourceColumn="Address" DataSetColumn="Address" />
+              <Mapping SourceColumn="Tel" DataSetColumn="Tel" />
+              <Mapping SourceColumn="Fax" DataSetColumn="Fax" />
+              <Mapping SourceColumn="EMail" DataSetColumn="EMail" />
+              <Mapping SourceColumn="WWW" DataSetColumn="WWW" />
+              <Mapping SourceColumn="Logo" DataSetColumn="Logo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_ExhStatusesForReviewListTableAdapter" GeneratorDataComponentClassName="View_ExhStatusesForReviewListTableAdapter" Name="View_ExhStatusesForReviewList" UserDataComponentName="View_ExhStatusesForReviewListTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="KinoConnectionString (Settings)" DbObjectName="Kino.dbo.View_ExhStatusesForReviewList" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        exh_status, orderInList
+FROM            View_ExhStatusesForReviewList
+ORDER BY orderInList</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="exh_status" DataSetColumn="exh_status" />
+              <Mapping SourceColumn="orderInList" DataSetColumn="orderInList" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Func_PedigreeInfoByDofIDTableAdapter" GeneratorDataComponentClassName="Func_PedigreeInfoByDofIDTableAdapter" Name="Func_PedigreeInfoByDofID" UserDataComponentName="Func_PedigreeInfoByDofIDTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="KinoConnectionString (Settings)" DbObjectName="Kino.dbo.Func_PedigreeInfoByDofID" DbObjectType="Function" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        pedigree_id, breed_name, sex, full_name, name_alias, FullNumber, br_date, color, Owner, Breeder, tatoo, chip_id, death_date, status, details, father_Name, 
+                         father_Number, father_Details, mother_Name, mother_Number, mother_Details, father_granpa_Name, father_granpa_Number, father_granpa_Details, 
+                         father_granma_Name, father_granma_Number, father_granma_Details, mother_granpa_Name, mother_granpa_Number, mother_granpa_Details, 
+                         mother_granma_Name, mother_granma_Number, mother_granma_Details, father_granpagranpa_Name, father_granpagranpa_Number, 
+                         father_granpagranpa_Details, father_granpagranma_Name, father_granpagranma_Number, father_granpagranma_Details, father_granmagranpa_Name, 
+                         father_granmagranpa_Number, father_granmagranpa_Details, father_granmagranma_Name, father_granmagranma_Number, father_granmagranma_Details, 
+                         mother_granpagranpa_Name, mother_granpagranpa_Number, mother_granpagranpa_Details, mother_granpagranma_Name, mother_granpagranma_Number, 
+                         mother_granpagranma_Details, mother_granmagranpa_Name, mother_granmagranpa_Number, mother_granmagranpa_Details, mother_granmagranma_Name, 
+                         mother_granmagranma_Number, mother_granmagranma_Details, tbl_pedigree_champion_status, Father_Champions, Mother_Champions, 
+                         Father_granma_Champions, Father_granmagranma_Champions, Father_granmagranpa_Champions, Father_granpa_Champions, 
+                         Father_granpa_granma_Champions, Father_granpa_granpa_Champions, Mother_granpa_Champions, Mother_granpagranma_Champions, 
+                         Mother_granpagranpa_Champions, Mother_granma_Champions, Mother_granmagranma_Champions, Mother_granmagranpa_Champions
+FROM            dbo.Func_PedigreeInfoByDofID(@DogID) AS Func_PedigreeInfoByDofID_1</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="DogID" ColumnName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@DogID" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="pedigree_id" DataSetColumn="pedigree_id" />
+              <Mapping SourceColumn="breed_name" DataSetColumn="breed_name" />
+              <Mapping SourceColumn="sex" DataSetColumn="sex" />
+              <Mapping SourceColumn="full_name" DataSetColumn="full_name" />
+              <Mapping SourceColumn="name_alias" DataSetColumn="name_alias" />
+              <Mapping SourceColumn="FullNumber" DataSetColumn="FullNumber" />
+              <Mapping SourceColumn="br_date" DataSetColumn="br_date" />
+              <Mapping SourceColumn="color" DataSetColumn="color" />
+              <Mapping SourceColumn="Owner" DataSetColumn="Owner" />
+              <Mapping SourceColumn="Breeder" DataSetColumn="Breeder" />
+              <Mapping SourceColumn="tatoo" DataSetColumn="tatoo" />
+              <Mapping SourceColumn="chip_id" DataSetColumn="chip_id" />
+              <Mapping SourceColumn="death_date" DataSetColumn="death_date" />
+              <Mapping SourceColumn="status" DataSetColumn="status" />
+              <Mapping SourceColumn="details" DataSetColumn="details" />
+              <Mapping SourceColumn="father_Name" DataSetColumn="father_Name" />
+              <Mapping SourceColumn="father_Number" DataSetColumn="father_Number" />
+              <Mapping SourceColumn="father_Details" DataSetColumn="father_Details" />
+              <Mapping SourceColumn="mother_Name" DataSetColumn="mother_Name" />
+              <Mapping SourceColumn="mother_Number" DataSetColumn="mother_Number" />
+              <Mapping SourceColumn="mother_Details" DataSetColumn="mother_Details" />
+              <Mapping SourceColumn="father_granpa_Name" DataSetColumn="father_granpa_Name" />
+              <Mapping SourceColumn="father_granpa_Number" DataSetColumn="father_granpa_Number" />
+              <Mapping SourceColumn="father_granpa_Details" DataSetColumn="father_granpa_Details" />
+              <Mapping SourceColumn="father_granma_Name" DataSetColumn="father_granma_Name" />
+              <Mapping SourceColumn="father_granma_Number" DataSetColumn="father_granma_Number" />
+              <Mapping SourceColumn="father_granma_Details" DataSetColumn="father_granma_Details" />
+              <Mapping SourceColumn="mother_granpa_Name" DataSetColumn="mother_granpa_Name" />
+              <Mapping SourceColumn="mother_granpa_Number" DataSetColumn="mother_granpa_Number" />
+              <Mapping SourceColumn="mother_granpa_Details" DataSetColumn="mother_granpa_Details" />
+              <Mapping SourceColumn="mother_granma_Name" DataSetColumn="mother_granma_Name" />
+              <Mapping SourceColumn="mother_granma_Number" DataSetColumn="mother_granma_Number" />
+              <Mapping SourceColumn="mother_granma_Details" DataSetColumn="mother_granma_Details" />
+              <Mapping SourceColumn="father_granpagranpa_Name" DataSetColumn="father_granpagranpa_Name" />
+              <Mapping SourceColumn="father_granpagranpa_Number" DataSetColumn="father_granpagranpa_Number" />
+              <Mapping SourceColumn="father_granpagranpa_Details" DataSetColumn="father_granpagranpa_Details" />
+              <Mapping SourceColumn="father_granpagranma_Name" DataSetColumn="father_granpagranma_Name" />
+              <Mapping SourceColumn="father_granpagranma_Number" DataSetColumn="father_granpagranma_Number" />
+              <Mapping SourceColumn="father_granpagranma_Details" DataSetColumn="father_granpagranma_Details" />
+              <Mapping SourceColumn="father_granmagranpa_Name" DataSetColumn="father_granmagranpa_Name" />
+              <Mapping SourceColumn="father_granmagranpa_Number" DataSetColumn="father_granmagranpa_Number" />
+              <Mapping SourceColumn="father_granmagranpa_Details" DataSetColumn="father_granmagranpa_Details" />
+              <Mapping SourceColumn="father_granmagranma_Name" DataSetColumn="father_granmagranma_Name" />
+              <Mapping SourceColumn="father_granmagranma_Number" DataSetColumn="father_granmagranma_Number" />
+              <Mapping SourceColumn="father_granmagranma_Details" DataSetColumn="father_granmagranma_Details" />
+              <Mapping SourceColumn="mother_granpagranpa_Name" DataSetColumn="mother_granpagranpa_Name" />
+              <Mapping SourceColumn="mother_granpagranpa_Number" DataSetColumn="mother_granpagranpa_Number" />
+              <Mapping SourceColumn="mother_granpagranpa_Details" DataSetColumn="mother_granpagranpa_Details" />
+              <Mapping SourceColumn="mother_granpagranma_Name" DataSetColumn="mother_granpagranma_Name" />
+              <Mapping SourceColumn="mother_granpagranma_Number" DataSetColumn="mother_granpagranma_Number" />
+              <Mapping SourceColumn="mother_granpagranma_Details" DataSetColumn="mother_granpagranma_Details" />
+              <Mapping SourceColumn="mother_granmagranpa_Name" DataSetColumn="mother_granmagranpa_Name" />
+              <Mapping SourceColumn="mother_granmagranpa_Number" DataSetColumn="mother_granmagranpa_Number" />
+              <Mapping SourceColumn="mother_granmagranpa_Details" DataSetColumn="mother_granmagranpa_Details" />
+              <Mapping SourceColumn="mother_granmagranma_Name" DataSetColumn="mother_granmagranma_Name" />
+              <Mapping SourceColumn="mother_granmagranma_Number" DataSetColumn="mother_granmagranma_Number" />
+              <Mapping SourceColumn="mother_granmagranma_Details" DataSetColumn="mother_granmagranma_Details" />
+              <Mapping SourceColumn="tbl_pedigree_champion_status" DataSetColumn="tbl_pedigree_champion_status" />
+              <Mapping SourceColumn="Father_Champions" DataSetColumn="Father_Champions" />
+              <Mapping SourceColumn="Mother_Champions" DataSetColumn="Mother_Champions" />
+              <Mapping SourceColumn="Father_granma_Champions" DataSetColumn="Father_granma_Champions" />
+              <Mapping SourceColumn="Father_granmagranma_Champions" DataSetColumn="Father_granmagranma_Champions" />
+              <Mapping SourceColumn="Father_granmagranpa_Champions" DataSetColumn="Father_granmagranpa_Champions" />
+              <Mapping SourceColumn="Father_granpa_Champions" DataSetColumn="Father_granpa_Champions" />
+              <Mapping SourceColumn="Father_granpa_granma_Champions" DataSetColumn="Father_granpa_granma_Champions" />
+              <Mapping SourceColumn="Father_granpa_granpa_Champions" DataSetColumn="Father_granpa_granpa_Champions" />
+              <Mapping SourceColumn="Mother_granpa_Champions" DataSetColumn="Mother_granpa_Champions" />
+              <Mapping SourceColumn="Mother_granpagranma_Champions" DataSetColumn="Mother_granpagranma_Champions" />
+              <Mapping SourceColumn="Mother_granpagranpa_Champions" DataSetColumn="Mother_granpagranpa_Champions" />
+              <Mapping SourceColumn="Mother_granma_Champions" DataSetColumn="Mother_granma_Champions" />
+              <Mapping SourceColumn="Mother_granmagranma_Champions" DataSetColumn="Mother_granmagranma_Champions" />
+              <Mapping SourceColumn="Mother_granmagranpa_Champions" DataSetColumn="Mother_granmagranpa_Champions" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KinoReportsDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="KinoReportsDataSet" msprop:Generator_UserDSName="KinoReportsDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="View_CatalogDetails" msprop:Generator_TableClassName="View_CatalogDetailsDataTable" msprop:Generator_TableVarName="tableView_CatalogDetails" msprop:Generator_RowChangedName="View_CatalogDetailsRowChanged" msprop:Generator_TablePropName="View_CatalogDetails" msprop:Generator_RowDeletingName="View_CatalogDetailsRowDeleting" msprop:Generator_RowChangingName="View_CatalogDetailsRowChanging" msprop:Generator_RowEvHandlerName="View_CatalogDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="View_CatalogDetailsRowDeleted" msprop:Generator_RowClassName="View_CatalogDetailsRow" msprop:Generator_UserTableName="View_CatalogDetails" msprop:Generator_RowEvArgName="View_CatalogDetailsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="breed_group_order" msprop:Generator_ColumnVarNameInTable="columnbreed_group_order" msprop:Generator_ColumnPropNameInRow="breed_group_order" msprop:Generator_ColumnPropNameInTable="breed_group_orderColumn" msprop:Generator_UserColumnName="breed_group_order" type="xs:int" minOccurs="0" />
+              <xs:element name="breed_group_name" msprop:Generator_ColumnVarNameInTable="columnbreed_group_name" msprop:Generator_ColumnPropNameInRow="breed_group_name" msprop:Generator_ColumnPropNameInTable="breed_group_nameColumn" msprop:Generator_UserColumnName="breed_group_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FullBreedName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFullBreedName" msprop:Generator_ColumnPropNameInRow="FullBreedName" msprop:Generator_ColumnPropNameInTable="FullBreedNameColumn" msprop:Generator_UserColumnName="FullBreedName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="201" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sex_id" msprop:Generator_ColumnVarNameInTable="columnsex_id" msprop:Generator_ColumnPropNameInRow="sex_id" msprop:Generator_ColumnPropNameInTable="sex_idColumn" msprop:Generator_UserColumnName="sex_id" type="xs:int" minOccurs="0" />
+              <xs:element name="agegroup_id" msprop:Generator_ColumnVarNameInTable="columnagegroup_id" msprop:Generator_ColumnPropNameInRow="agegroup_id" msprop:Generator_ColumnPropNameInTable="agegroup_idColumn" msprop:Generator_UserColumnName="agegroup_id" type="xs:int" />
+              <xs:element name="DogFullName" msprop:Generator_ColumnVarNameInTable="columnDogFullName" msprop:Generator_ColumnPropNameInRow="DogFullName" msprop:Generator_ColumnPropNameInTable="DogFullNameColumn" msprop:Generator_UserColumnName="DogFullName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="registration_status" msprop:Generator_ColumnVarNameInTable="columnregistration_status" msprop:Generator_ColumnPropNameInRow="registration_status" msprop:Generator_ColumnPropNameInTable="registration_statusColumn" msprop:Generator_UserColumnName="registration_status" type="xs:int" />
+              <xs:element name="alias" msprop:Generator_ColumnVarNameInTable="columnalias" msprop:Generator_ColumnPropNameInRow="alias" msprop:Generator_ColumnPropNameInTable="aliasColumn" msprop:Generator_UserColumnName="alias" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FullSexName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFullSexName" msprop:Generator_ColumnPropNameInRow="FullSexName" msprop:Generator_ColumnPropNameInTable="FullSexNameColumn" msprop:Generator_UserColumnName="FullSexName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="61" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FullAgeGroupName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFullAgeGroupName" msprop:Generator_ColumnPropNameInRow="FullAgeGroupName" msprop:Generator_ColumnPropNameInTable="FullAgeGroupNameColumn" msprop:Generator_UserColumnName="FullAgeGroupName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FullRegNumer" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFullRegNumer" msprop:Generator_ColumnPropNameInRow="FullRegNumer" msprop:Generator_ColumnPropNameInTable="FullRegNumerColumn" msprop:Generator_UserColumnName="FullRegNumer" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="112" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="br_date" msprop:Generator_ColumnVarNameInTable="columnbr_date" msprop:Generator_ColumnPropNameInRow="br_date" msprop:Generator_ColumnPropNameInTable="br_dateColumn" msprop:Generator_UserColumnName="br_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="tatoo" msprop:Generator_ColumnVarNameInTable="columntatoo" msprop:Generator_ColumnPropNameInRow="tatoo" msprop:Generator_ColumnPropNameInTable="tatooColumn" msprop:Generator_UserColumnName="tatoo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FullColor_name" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFullColor_name" msprop:Generator_ColumnPropNameInRow="FullColor_name" msprop:Generator_ColumnPropNameInTable="FullColor_nameColumn" msprop:Generator_UserColumnName="FullColor_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="70" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SirName" msprop:Generator_ColumnVarNameInTable="columnSirName" msprop:Generator_ColumnPropNameInRow="SirName" msprop:Generator_ColumnPropNameInTable="SirNameColumn" msprop:Generator_UserColumnName="SirName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DamName" msprop:Generator_ColumnVarNameInTable="columnDamName" msprop:Generator_ColumnPropNameInRow="DamName" msprop:Generator_ColumnPropNameInTable="DamNameColumn" msprop:Generator_UserColumnName="DamName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Owner" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnOwner" msprop:Generator_ColumnPropNameInRow="Owner" msprop:Generator_ColumnPropNameInTable="OwnerColumn" msprop:Generator_UserColumnName="Owner" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="53" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Breeder" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnBreeder" msprop:Generator_ColumnPropNameInRow="Breeder" msprop:Generator_ColumnPropNameInTable="BreederColumn" msprop:Generator_UserColumnName="Breeder" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="53" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="exhibition_id" msprop:Generator_ColumnVarNameInTable="columnexhibition_id" msprop:Generator_ColumnPropNameInRow="exhibition_id" msprop:Generator_ColumnPropNameInTable="exhibition_idColumn" msprop:Generator_UserColumnName="exhibition_id" type="xs:int" />
+              <xs:element name="registrationNumber" msprop:Generator_ColumnVarNameInTable="columnregistrationNumber" msprop:Generator_ColumnPropNameInRow="registrationNumber" msprop:Generator_ColumnPropNameInTable="registrationNumberColumn" msprop:Generator_UserColumnName="registrationNumber" type="xs:int" minOccurs="0" />
+              <xs:element name="exhibition_name" msprop:Generator_ColumnVarNameInTable="columnexhibition_name" msprop:Generator_ColumnPropNameInRow="exhibition_name" msprop:Generator_ColumnPropNameInTable="exhibition_nameColumn" msprop:Generator_UserColumnName="exhibition_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="date" msprop:Generator_ColumnPropNameInTable="dateColumn" msprop:Generator_UserColumnName="date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="country_name" msprop:Generator_ColumnVarNameInTable="columncountry_name" msprop:Generator_ColumnPropNameInRow="country_name" msprop:Generator_ColumnPropNameInTable="country_nameColumn" msprop:Generator_UserColumnName="country_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="city" msprop:Generator_ColumnVarNameInTable="columncity" msprop:Generator_ColumnPropNameInRow="city" msprop:Generator_ColumnPropNameInTable="cityColumn" msprop:Generator_UserColumnName="city" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="address" msprop:Generator_ColumnVarNameInTable="columnaddress" msprop:Generator_ColumnPropNameInRow="address" msprop:Generator_ColumnPropNameInTable="addressColumn" msprop:Generator_UserColumnName="address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="exhib_category" msprop:Generator_ColumnVarNameInTable="columnexhib_category" msprop:Generator_ColumnPropNameInRow="exhib_category" msprop:Generator_ColumnPropNameInTable="exhib_categoryColumn" msprop:Generator_UserColumnName="exhib_category">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbl_organization" msprop:Generator_TableClassName="tbl_organizationDataTable" msprop:Generator_TableVarName="tabletbl_organization" msprop:Generator_RowChangedName="tbl_organizationRowChanged" msprop:Generator_TablePropName="tbl_organization" msprop:Generator_RowDeletingName="tbl_organizationRowDeleting" msprop:Generator_RowChangingName="tbl_organizationRowChanging" msprop:Generator_RowEvHandlerName="tbl_organizationRowChangeEventHandler" msprop:Generator_RowDeletedName="tbl_organizationRowDeleted" msprop:Generator_RowClassName="tbl_organizationRow" msprop:Generator_UserTableName="tbl_organization" msprop:Generator_RowEvArgName="tbl_organizationRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="OrgName" msprop:Generator_ColumnVarNameInTable="columnOrgName" msprop:Generator_ColumnPropNameInRow="OrgName" msprop:Generator_ColumnPropNameInTable="OrgNameColumn" msprop:Generator_UserColumnName="OrgName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LocalOrgName" msprop:Generator_ColumnVarNameInTable="columnLocalOrgName" msprop:Generator_ColumnPropNameInRow="LocalOrgName" msprop:Generator_ColumnPropNameInTable="LocalOrgNameColumn" msprop:Generator_UserColumnName="LocalOrgName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_UserColumnName="Address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tel" msprop:Generator_ColumnVarNameInTable="columnTel" msprop:Generator_ColumnPropNameInRow="Tel" msprop:Generator_ColumnPropNameInTable="TelColumn" msprop:Generator_UserColumnName="Tel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fax" msprop:Generator_ColumnVarNameInTable="columnFax" msprop:Generator_ColumnPropNameInRow="Fax" msprop:Generator_ColumnPropNameInTable="FaxColumn" msprop:Generator_UserColumnName="Fax" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EMail" msprop:Generator_ColumnVarNameInTable="columnEMail" msprop:Generator_ColumnPropNameInRow="EMail" msprop:Generator_ColumnPropNameInTable="EMailColumn" msprop:Generator_UserColumnName="EMail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WWW" msprop:Generator_ColumnVarNameInTable="columnWWW" msprop:Generator_ColumnPropNameInRow="WWW" msprop:Generator_ColumnPropNameInTable="WWWColumn" msprop:Generator_UserColumnName="WWW" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Logo" msprop:Generator_ColumnVarNameInTable="columnLogo" msprop:Generator_ColumnPropNameInRow="Logo" msprop:Generator_ColumnPropNameInTable="LogoColumn" msprop:Generator_UserColumnName="Logo" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="View_ExhStatusesForReviewList" msprop:Generator_TableClassName="View_ExhStatusesForReviewListDataTable" msprop:Generator_TableVarName="tableView_ExhStatusesForReviewList" msprop:Generator_RowChangedName="View_ExhStatusesForReviewListRowChanged" msprop:Generator_TablePropName="View_ExhStatusesForReviewList" msprop:Generator_RowDeletingName="View_ExhStatusesForReviewListRowDeleting" msprop:Generator_RowChangingName="View_ExhStatusesForReviewListRowChanging" msprop:Generator_RowEvHandlerName="View_ExhStatusesForReviewListRowChangeEventHandler" msprop:Generator_RowDeletedName="View_ExhStatusesForReviewListRowDeleted" msprop:Generator_RowClassName="View_ExhStatusesForReviewListRow" msprop:Generator_UserTableName="View_ExhStatusesForReviewList" msprop:Generator_RowEvArgName="View_ExhStatusesForReviewListRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="exh_status" msprop:Generator_ColumnVarNameInTable="columnexh_status" msprop:Generator_ColumnPropNameInRow="exh_status" msprop:Generator_ColumnPropNameInTable="exh_statusColumn" msprop:Generator_UserColumnName="exh_status">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="orderInList" msprop:Generator_ColumnVarNameInTable="columnorderInList" msprop:Generator_ColumnPropNameInRow="orderInList" msprop:Generator_ColumnPropNameInTable="orderInListColumn" msprop:Generator_UserColumnName="orderInList" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Func_PedigreeInfoByDofID" msprop:Generator_TableClassName="Func_PedigreeInfoByDofIDDataTable" msprop:Generator_TableVarName="tableFunc_PedigreeInfoByDofID" msprop:Generator_RowChangedName="Func_PedigreeInfoByDofIDRowChanged" msprop:Generator_TablePropName="Func_PedigreeInfoByDofID" msprop:Generator_RowDeletingName="Func_PedigreeInfoByDofIDRowDeleting" msprop:Generator_RowChangingName="Func_PedigreeInfoByDofIDRowChanging" msprop:Generator_RowEvHandlerName="Func_PedigreeInfoByDofIDRowChangeEventHandler" msprop:Generator_RowDeletedName="Func_PedigreeInfoByDofIDRowDeleted" msprop:Generator_RowClassName="Func_PedigreeInfoByDofIDRow" msprop:Generator_UserTableName="Func_PedigreeInfoByDofID" msprop:Generator_RowEvArgName="Func_PedigreeInfoByDofIDRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="pedigree_id" msprop:Generator_ColumnVarNameInTable="columnpedigree_id" msprop:Generator_ColumnPropNameInRow="pedigree_id" msprop:Generator_ColumnPropNameInTable="pedigree_idColumn" msprop:Generator_UserColumnName="pedigree_id" type="xs:int" />
+              <xs:element name="breed_name" msprop:Generator_ColumnVarNameInTable="columnbreed_name" msprop:Generator_ColumnPropNameInRow="breed_name" msprop:Generator_ColumnPropNameInTable="breed_nameColumn" msprop:Generator_UserColumnName="breed_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sex" msprop:Generator_ColumnVarNameInTable="columnsex" msprop:Generator_ColumnPropNameInRow="sex" msprop:Generator_ColumnPropNameInTable="sexColumn" msprop:Generator_UserColumnName="sex" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="full_name" msprop:Generator_ColumnVarNameInTable="columnfull_name" msprop:Generator_ColumnPropNameInRow="full_name" msprop:Generator_ColumnPropNameInTable="full_nameColumn" msprop:Generator_UserColumnName="full_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="name_alias" msprop:Generator_ColumnVarNameInTable="columnname_alias" msprop:Generator_ColumnPropNameInRow="name_alias" msprop:Generator_ColumnPropNameInTable="name_aliasColumn" msprop:Generator_UserColumnName="name_alias" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FullNumber" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFullNumber" msprop:Generator_ColumnPropNameInRow="FullNumber" msprop:Generator_ColumnPropNameInTable="FullNumberColumn" msprop:Generator_UserColumnName="FullNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="br_date" msprop:Generator_ColumnVarNameInTable="columnbr_date" msprop:Generator_ColumnPropNameInRow="br_date" msprop:Generator_ColumnPropNameInTable="br_dateColumn" msprop:Generator_UserColumnName="br_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="color" msprop:Generator_ColumnVarNameInTable="columncolor" msprop:Generator_ColumnPropNameInRow="color" msprop:Generator_ColumnPropNameInTable="colorColumn" msprop:Generator_UserColumnName="color" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Owner" msprop:Generator_ColumnVarNameInTable="columnOwner" msprop:Generator_ColumnPropNameInRow="Owner" msprop:Generator_ColumnPropNameInTable="OwnerColumn" msprop:Generator_UserColumnName="Owner" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="27" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Breeder" msprop:Generator_ColumnVarNameInTable="columnBreeder" msprop:Generator_ColumnPropNameInRow="Breeder" msprop:Generator_ColumnPropNameInTable="BreederColumn" msprop:Generator_UserColumnName="Breeder" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="27" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tatoo" msprop:Generator_ColumnVarNameInTable="columntatoo" msprop:Generator_ColumnPropNameInRow="tatoo" msprop:Generator_ColumnPropNameInTable="tatooColumn" msprop:Generator_UserColumnName="tatoo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="chip_id" msprop:Generator_ColumnVarNameInTable="columnchip_id" msprop:Generator_ColumnPropNameInRow="chip_id" msprop:Generator_ColumnPropNameInTable="chip_idColumn" msprop:Generator_UserColumnName="chip_id" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="death_date" msprop:Generator_ColumnVarNameInTable="columndeath_date" msprop:Generator_ColumnPropNameInRow="death_date" msprop:Generator_ColumnPropNameInTable="death_dateColumn" msprop:Generator_UserColumnName="death_date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="status" msprop:Generator_ColumnVarNameInTable="columnstatus" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_UserColumnName="status" type="xs:int" minOccurs="0" />
+              <xs:element name="details" msprop:Generator_ColumnVarNameInTable="columndetails" msprop:Generator_ColumnPropNameInRow="details" msprop:Generator_ColumnPropNameInTable="detailsColumn" msprop:Generator_UserColumnName="details" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="father_Name" msprop:Generator_ColumnVarNameInTable="columnfather_Name" msprop:Generator_ColumnPropNameInRow="father_Name" msprop:Generator_ColumnPropNameInTable="father_NameColumn" msprop:Generator_UserColumnName="father_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="father_Number" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnfather_Number" msprop:Generator_ColumnPropNameInRow="father_Number" msprop:Generator_ColumnPropNameInTable="father_NumberColumn" msprop:Generator_UserColumnName="father_Number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="father_Details" msprop:Generator_ColumnVarNameInTable="columnfather_Details" msprop:Generator_ColumnPropNameInRow="father_Details" msprop:Generator_ColumnPropNameInTable="father_DetailsColumn" msprop:Generator_UserColumnName="father_Details" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mother_Name" msprop:Generator_ColumnVarNameInTable="columnmother_Name" msprop:Generator_ColumnPropNameInRow="mother_Name" msprop:Generator_ColumnPropNameInTable="mother_NameColumn" msprop:Generator_UserColumnName="mother_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mother_Number" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmother_Number" msprop:Generator_ColumnPropNameInRow="mother_Number" msprop:Generator_ColumnPropNameInTable="mother_NumberColumn" msprop:Generator_UserColumnName="mother_Number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mother_Details" msprop:Generator_ColumnVarNameInTable="columnmother_Details" msprop:Generator_ColumnPropNameInRow="mother_Details" msprop:Generator_ColumnPropNameInTable="mother_DetailsColumn" msprop:Generator_UserColumnName="mother_Details" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="father_granpa_Name" msprop:Generator_ColumnVarNameInTable="columnfather_granpa_Name" msprop:Generator_ColumnPropNameInRow="father_granpa_Name" msprop:Generator_ColumnPropNameInTable="father_granpa_NameColumn" msprop:Generator_UserColumnName="father_granpa_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="father_granpa_Number" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnfather_granpa_Number" msprop:Generator_ColumnPropNameInRow="father_granpa_Number" msprop:Generator_ColumnPropNameInTable="father_granpa_NumberColumn" msprop:Generator_UserColumnName="father_granpa_Number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="father_granpa_Details" msprop:Generator_ColumnVarNameInTable="columnfather_granpa_Details" msprop:Generator_ColumnPropNameInRow="father_granpa_Details" msprop:Generator_ColumnPropNameInTable="father_granpa_DetailsColumn" msprop:Generator_UserColumnName="father_granpa_Details" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="father_granma_Name" msprop:Generator_ColumnVarNameInTable="columnfather_granma_Name" msprop:Generator_ColumnPropNameInRow="father_granma_Name" msprop:Generator_ColumnPropNameInTable="father_granma_NameColumn" msprop:Generator_UserColumnName="father_granma_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="father_granma_Number" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnfather_granma_Number" msprop:Generator_ColumnPropNameInRow="father_granma_Number" msprop:Generator_ColumnPropNameInTable="father_granma_NumberColumn" msprop:Generator_UserColumnName="father_granma_Number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="father_granma_Details" msprop:Generator_ColumnVarNameInTable="columnfather_granma_Details" msprop:Generator_ColumnPropNameInRow="father_granma_Details" msprop:Generator_ColumnPropNameInTable="father_granma_DetailsColumn" msprop:Generator_UserColumnName="father_granma_Details" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mother_granpa_Name" msprop:Generator_ColumnVarNameInTable="columnmother_granpa_Name" msprop:Generator_ColumnPropNameInRow="mother_granpa_Name" msprop:Generator_ColumnPropNameInTable="mother_granpa_NameColumn" msprop:Generator_UserColumnName="mother_granpa_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mother_granpa_Number" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmother_granpa_Number" msprop:Generator_ColumnPropNameInRow="mother_granpa_Number" msprop:Generator_ColumnPropNameInTable="mother_granpa_NumberColumn" msprop:Generator_UserColumnName="mother_granpa_Number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mother_granpa_Details" msprop:Generator_ColumnVarNameInTable="columnmother_granpa_Details" msprop:Generator_ColumnPropNameInRow="mother_granpa_Details" msprop:Generator_ColumnPropNameInTable="mother_granpa_DetailsColumn" msprop:Generator_UserColumnName="mother_granpa_Details" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mother_granma_Name" msprop:Generator_ColumnVarNameInTable="columnmother_granma_Name" msprop:Generator_ColumnPropNameInRow="mother_granma_Name" msprop:Generator_ColumnPropNameInTable="mother_granma_NameColumn" msprop:Generator_UserColumnName="mother_granma_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mother_granma_Number" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmother_granma_Number" msprop:Generator_ColumnPropNameInRow="mother_granma_Number" msprop:Generator_ColumnPropNameInTable="mother_granma_NumberColumn" msprop:Generator_UserColumnName="mother_granma_Number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mother_granma_Details" msprop:Generator_ColumnVarNameInTable="columnmother_granma_Details" msprop:Generator_ColumnPropNameInRow="mother_granma_Details" msprop:Generator_ColumnPropNameInTable="mother_granma_DetailsColumn" msprop:Generator_UserColumnName="mother_granma_Details" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="father_granpagranpa_Name" msprop:Generator_ColumnVarNameInTable="columnfather_granpagranpa_Name" msprop:Generator_ColumnPropNameInRow="father_granpagranpa_Name" msprop:Generator_ColumnPropNameInTable="father_granpagranpa_NameColumn" msprop:Generator_UserColumnName="father_granpagranpa_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="father_granpagranpa_Number" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnfather_granpagranpa_Number" msprop:Generator_ColumnPropNameInRow="father_granpagranpa_Number" msprop:Generator_ColumnPropNameInTable="father_granpagranpa_NumberColumn" msprop:Generator_UserColumnName="father_granpagranpa_Number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="father_granpagranpa_Details" msprop:Generator_ColumnVarNameInTable="columnfather_granpagranpa_Details" msprop:Generator_ColumnPropNameInRow="father_granpagranpa_Details" msprop:Generator_ColumnPropNameInTable="father_granpagranpa_DetailsColumn" msprop:Generator_UserColumnName="father_granpagranpa_Details" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="father_granpagranma_Name" msprop:Generator_ColumnVarNameInTable="columnfather_granpagranma_Name" msprop:Generator_ColumnPropNameInRow="father_granpagranma_Name" msprop:Generator_ColumnPropNameInTable="father_granpagranma_NameColumn" msprop:Generator_UserColumnName="father_granpagranma_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="father_granpagranma_Number" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnfather_granpagranma_Number" msprop:Generator_ColumnPropNameInRow="father_granpagranma_Number" msprop:Generator_ColumnPropNameInTable="father_granpagranma_NumberColumn" msprop:Generator_UserColumnName="father_granpagranma_Number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="father_granpagranma_Details" msprop:Generator_ColumnVarNameInTable="columnfather_granpagranma_Details" msprop:Generator_ColumnPropNameInRow="father_granpagranma_Details" msprop:Generator_ColumnPropNameInTable="father_granpagranma_DetailsColumn" msprop:Generator_UserColumnName="father_granpagranma_Details" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="father_granmagranpa_Name" msprop:Generator_ColumnVarNameInTable="columnfather_granmagranpa_Name" msprop:Generator_ColumnPropNameInRow="father_granmagranpa_Name" msprop:Generator_ColumnPropNameInTable="father_granmagranpa_NameColumn" msprop:Generator_UserColumnName="father_granmagranpa_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="father_granmagranpa_Number" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnfather_granmagranpa_Number" msprop:Generator_ColumnPropNameInRow="father_granmagranpa_Number" msprop:Generator_ColumnPropNameInTable="father_granmagranpa_NumberColumn" msprop:Generator_UserColumnName="father_granmagranpa_Number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="father_granmagranpa_Details" msprop:Generator_ColumnVarNameInTable="columnfather_granmagranpa_Details" msprop:Generator_ColumnPropNameInRow="father_granmagranpa_Details" msprop:Generator_ColumnPropNameInTable="father_granmagranpa_DetailsColumn" msprop:Generator_UserColumnName="father_granmagranpa_Details" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="father_granmagranma_Name" msprop:Generator_ColumnVarNameInTable="columnfather_granmagranma_Name" msprop:Generator_ColumnPropNameInRow="father_granmagranma_Name" msprop:Generator_ColumnPropNameInTable="father_granmagranma_NameColumn" msprop:Generator_UserColumnName="father_granmagranma_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="father_granmagranma_Number" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnfather_granmagranma_Number" msprop:Generator_ColumnPropNameInRow="father_granmagranma_Number" msprop:Generator_ColumnPropNameInTable="father_granmagranma_NumberColumn" msprop:Generator_UserColumnName="father_granmagranma_Number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="father_granmagranma_Details" msprop:Generator_ColumnVarNameInTable="columnfather_granmagranma_Details" msprop:Generator_ColumnPropNameInRow="father_granmagranma_Details" msprop:Generator_ColumnPropNameInTable="father_granmagranma_DetailsColumn" msprop:Generator_UserColumnName="father_granmagranma_Details" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mother_granpagranpa_Name" msprop:Generator_ColumnVarNameInTable="columnmother_granpagranpa_Name" msprop:Generator_ColumnPropNameInRow="mother_granpagranpa_Name" msprop:Generator_ColumnPropNameInTable="mother_granpagranpa_NameColumn" msprop:Generator_UserColumnName="mother_granpagranpa_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mother_granpagranpa_Number" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmother_granpagranpa_Number" msprop:Generator_ColumnPropNameInRow="mother_granpagranpa_Number" msprop:Generator_ColumnPropNameInTable="mother_granpagranpa_NumberColumn" msprop:Generator_UserColumnName="mother_granpagranpa_Number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mother_granpagranpa_Details" msprop:Generator_ColumnVarNameInTable="columnmother_granpagranpa_Details" msprop:Generator_ColumnPropNameInRow="mother_granpagranpa_Details" msprop:Generator_ColumnPropNameInTable="mother_granpagranpa_DetailsColumn" msprop:Generator_UserColumnName="mother_granpagranpa_Details" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mother_granpagranma_Name" msprop:Generator_ColumnVarNameInTable="columnmother_granpagranma_Name" msprop:Generator_ColumnPropNameInRow="mother_granpagranma_Name" msprop:Generator_ColumnPropNameInTable="mother_granpagranma_NameColumn" msprop:Generator_UserColumnName="mother_granpagranma_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mother_granpagranma_Number" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmother_granpagranma_Number" msprop:Generator_ColumnPropNameInRow="mother_granpagranma_Number" msprop:Generator_ColumnPropNameInTable="mother_granpagranma_NumberColumn" msprop:Generator_UserColumnName="mother_granpagranma_Number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mother_granpagranma_Details" msprop:Generator_ColumnVarNameInTable="columnmother_granpagranma_Details" msprop:Generator_ColumnPropNameInRow="mother_granpagranma_Details" msprop:Generator_ColumnPropNameInTable="mother_granpagranma_DetailsColumn" msprop:Generator_UserColumnName="mother_granpagranma_Details" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mother_granmagranpa_Name" msprop:Generator_ColumnVarNameInTable="columnmother_granmagranpa_Name" msprop:Generator_ColumnPropNameInRow="mother_granmagranpa_Name" msprop:Generator_ColumnPropNameInTable="mother_granmagranpa_NameColumn" msprop:Generator_UserColumnName="mother_granmagranpa_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mother_granmagranpa_Number" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmother_granmagranpa_Number" msprop:Generator_ColumnPropNameInRow="mother_granmagranpa_Number" msprop:Generator_ColumnPropNameInTable="mother_granmagranpa_NumberColumn" msprop:Generator_UserColumnName="mother_granmagranpa_Number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mother_granmagranpa_Details" msprop:Generator_ColumnVarNameInTable="columnmother_granmagranpa_Details" msprop:Generator_ColumnPropNameInRow="mother_granmagranpa_Details" msprop:Generator_ColumnPropNameInTable="mother_granmagranpa_DetailsColumn" msprop:Generator_UserColumnName="mother_granmagranpa_Details" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mother_granmagranma_Name" msprop:Generator_ColumnVarNameInTable="columnmother_granmagranma_Name" msprop:Generator_ColumnPropNameInRow="mother_granmagranma_Name" msprop:Generator_ColumnPropNameInTable="mother_granmagranma_NameColumn" msprop:Generator_UserColumnName="mother_granmagranma_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mother_granmagranma_Number" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnmother_granmagranma_Number" msprop:Generator_ColumnPropNameInRow="mother_granmagranma_Number" msprop:Generator_ColumnPropNameInTable="mother_granmagranma_NumberColumn" msprop:Generator_UserColumnName="mother_granmagranma_Number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="mother_granmagranma_Details" msprop:Generator_ColumnVarNameInTable="columnmother_granmagranma_Details" msprop:Generator_ColumnPropNameInRow="mother_granmagranma_Details" msprop:Generator_ColumnPropNameInTable="mother_granmagranma_DetailsColumn" msprop:Generator_UserColumnName="mother_granmagranma_Details" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tbl_pedigree_champion_status" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columntbl_pedigree_champion_status" msprop:Generator_ColumnPropNameInRow="tbl_pedigree_champion_status" msprop:Generator_ColumnPropNameInTable="tbl_pedigree_champion_statusColumn" msprop:Generator_UserColumnName="tbl_pedigree_champion_status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Father_Champions" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFather_Champions" msprop:Generator_ColumnPropNameInRow="Father_Champions" msprop:Generator_ColumnPropNameInTable="Father_ChampionsColumn" msprop:Generator_UserColumnName="Father_Champions" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mother_Champions" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMother_Champions" msprop:Generator_ColumnPropNameInRow="Mother_Champions" msprop:Generator_ColumnPropNameInTable="Mother_ChampionsColumn" msprop:Generator_UserColumnName="Mother_Champions" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Father_granma_Champions" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFather_granma_Champions" msprop:Generator_ColumnPropNameInRow="Father_granma_Champions" msprop:Generator_ColumnPropNameInTable="Father_granma_ChampionsColumn" msprop:Generator_UserColumnName="Father_granma_Champions" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Father_granmagranma_Champions" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFather_granmagranma_Champions" msprop:Generator_ColumnPropNameInRow="Father_granmagranma_Champions" msprop:Generator_ColumnPropNameInTable="Father_granmagranma_ChampionsColumn" msprop:Generator_UserColumnName="Father_granmagranma_Champions" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Father_granmagranpa_Champions" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFather_granmagranpa_Champions" msprop:Generator_ColumnPropNameInRow="Father_granmagranpa_Champions" msprop:Generator_ColumnPropNameInTable="Father_granmagranpa_ChampionsColumn" msprop:Generator_UserColumnName="Father_granmagranpa_Champions" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Father_granpa_Champions" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFather_granpa_Champions" msprop:Generator_ColumnPropNameInRow="Father_granpa_Champions" msprop:Generator_ColumnPropNameInTable="Father_granpa_ChampionsColumn" msprop:Generator_UserColumnName="Father_granpa_Champions" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Father_granpa_granma_Champions" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFather_granpa_granma_Champions" msprop:Generator_ColumnPropNameInRow="Father_granpa_granma_Champions" msprop:Generator_ColumnPropNameInTable="Father_granpa_granma_ChampionsColumn" msprop:Generator_UserColumnName="Father_granpa_granma_Champions" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Father_granpa_granpa_Champions" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFather_granpa_granpa_Champions" msprop:Generator_ColumnPropNameInRow="Father_granpa_granpa_Champions" msprop:Generator_ColumnPropNameInTable="Father_granpa_granpa_ChampionsColumn" msprop:Generator_UserColumnName="Father_granpa_granpa_Champions" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mother_granpa_Champions" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMother_granpa_Champions" msprop:Generator_ColumnPropNameInRow="Mother_granpa_Champions" msprop:Generator_ColumnPropNameInTable="Mother_granpa_ChampionsColumn" msprop:Generator_UserColumnName="Mother_granpa_Champions" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mother_granpagranma_Champions" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMother_granpagranma_Champions" msprop:Generator_ColumnPropNameInRow="Mother_granpagranma_Champions" msprop:Generator_ColumnPropNameInTable="Mother_granpagranma_ChampionsColumn" msprop:Generator_UserColumnName="Mother_granpagranma_Champions" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mother_granpagranpa_Champions" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMother_granpagranpa_Champions" msprop:Generator_ColumnPropNameInRow="Mother_granpagranpa_Champions" msprop:Generator_ColumnPropNameInTable="Mother_granpagranpa_ChampionsColumn" msprop:Generator_UserColumnName="Mother_granpagranpa_Champions" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mother_granma_Champions" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMother_granma_Champions" msprop:Generator_ColumnPropNameInRow="Mother_granma_Champions" msprop:Generator_ColumnPropNameInTable="Mother_granma_ChampionsColumn" msprop:Generator_UserColumnName="Mother_granma_Champions" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mother_granmagranma_Champions" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMother_granmagranma_Champions" msprop:Generator_ColumnPropNameInRow="Mother_granmagranma_Champions" msprop:Generator_ColumnPropNameInTable="Mother_granmagranma_ChampionsColumn" msprop:Generator_UserColumnName="Mother_granmagranma_Champions" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mother_granmagranpa_Champions" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMother_granmagranpa_Champions" msprop:Generator_ColumnPropNameInRow="Mother_granmagranpa_Champions" msprop:Generator_ColumnPropNameInTable="Mother_granmagranpa_ChampionsColumn" msprop:Generator_UserColumnName="Mother_granmagranpa_Champions" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

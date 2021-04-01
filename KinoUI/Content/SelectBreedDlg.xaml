@@ -1,0 +1,276 @@
+﻿<mui:ModernDialog x:Class="KinoUI.Content.SelectBreedDlg"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                  xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+                  xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+                               xmlns:telerikControls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                   xmlns:data="clr-namespace:KinoDataLibrary;assembly=KinoDataLibrary"
+                  xmlns:cont="clr-namespace:KinoUI.Content"
+                  xmlns:my="clr-namespace:KinoUI"
+                  mc:Ignorable="d" 
+                  d:DesignHeight="300" d:DesignWidth="600"
+                  Title="ModernDialog" Closing="ModernDialog_Closing" Loaded="ModernDialog_Loaded">
+
+    <mui:ModernDialog.Resources>
+        <data:KinoDataSet x:Key="kinoDataSet" />
+        <my:BreedColorImageConverter x:Key="breedColorImageConverter"/>
+        <CollectionViewSource x:Key="breedViewSource"  Source="{Binding DataContext.tbl_breed, RelativeSource={RelativeSource AncestorType={x:Type cont:SelectBreedDlg}}}"  />
+        <CollectionViewSource x:Key="breedhairtypesViewSource" Source="{Binding Source={StaticResource breedViewSource}, Path='FK_tbl_breed_hairtype_tbl_breed'}"/>
+
+        <CollectionViewSource x:Key="breednameViewSource" Source="{Binding DataContext.tbl_breed_name, RelativeSource={RelativeSource AncestorType={x:Type cont:SelectBreedDlg}}}" />
+     
+        <CollectionViewSource x:Key="regcounterViewSource" Source="{Binding Path=tbl_registration_counter, Source={StaticResource kinoDataSet}}" />
+
+        <CollectionViewSource x:Key="breedcolorrtypesViewSource" Source="{Binding Path=FK_tbl_breed_colortype_tbl_breed, Source={StaticResource kinoDataSet}}" />
+        <CollectionViewSource x:Key="breedsizetypesViewSource" Source="{Binding Path=FK_tbl_breed_sizetype_tbl_breed, Source={StaticResource kinoDataSet}}" />
+
+
+        <CollectionViewSource x:Key="hairtypeViewSource" Source="{Binding DataContext.tbl_breed_hairtype, RelativeSource={RelativeSource AncestorType={x:Type cont:SelectBreedDlg}}}">
+            <!--<CollectionViewSource.GroupDescriptions>
+                <PropertyGroupDescription PropertyName="ProjectName"/>
+            </CollectionViewSource.GroupDescriptions>-->
+        </CollectionViewSource>
+        <CollectionViewSource x:Key="colortypeViewSource" Source="{Binding DataContext.tbl_breed_colortype, RelativeSource={RelativeSource AncestorType={x:Type cont:SelectBreedDlg}}}" />
+        <CollectionViewSource x:Key="sizetypeViewSource" Source="{Binding DataContext.tbl_breed_sizetype, RelativeSource={RelativeSource AncestorType={x:Type cont:SelectBreedDlg}}}" />
+
+        <SolidColorBrush x:Key="foundBackgroundBrush" Color="#FFADD8E6"/>
+        <SolidColorBrush x:Key="notfoundBackgroundBrush" Color="Red"/>
+
+        <SolidColorBrush x:Key="outerBorderBackgroundBrush" Color="#FFADD8E6"/>
+        <SolidColorBrush x:Key="outerBorderBorderBrush" Color="#FF0000FF"/>
+        <SolidColorBrush x:Key="scrollViewerBorderBrush" Color="#FF000000"/>
+        <SolidColorBrush x:Key="scrollViewerBackgroundBrush" Color="#FFFFFFFF"/>
+        <SolidColorBrush x:Key="checkBoxBorderBrush" Color="#FF000000"/>
+
+        <Style x:Key="aeroCheckListBoxItemStyle" TargetType="{x:Type ListBoxItem}">
+            <Style.Resources>
+
+                <!--*** NOTE *** The below colors have been commented out by design -->
+
+
+                <!--To use the normal ListBox selection hightlight and selection color after
+                    the ListBox looses focus, just remove the below three resources-->
+
+                <!-- This Style is used to prevent the ListBoxItems from using different 
+                 colors when selected than when not selected. -->
+
+                <!-- Prevents the selected items from having a different color background. -->
+                <!-- <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"
+                                 Color="Transparent" /> -->
+
+                <!-- Prevents the selected items from having a different color 
+                     background when the ListBox no longer has focus. -->
+                <!-- <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}"
+                                 Color="Transparent" /> -->
+
+                <!-- Ensures the selected item's text is visible. Insurance policy-->
+                <!-- <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}"
+                                 Color="{x:Static SystemColors.ControlTextColor}" /> -->
+            </Style.Resources>
+
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="HorizontalContentAlignment" Value="{Binding Path=HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="VerticalContentAlignment" Value="{Binding Path=VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="Padding" Value="2,0,0,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="16"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!--The grid left margin of -20, gets the first column over to the left to give us that look that the CheckBoxes are outside our ListBox control-->
+                            <Grid Background="Transparent" Width="16" Height="16" HorizontalAlignment="Left" Margin="-20,0,0,0">
+
+                                <BulletDecorator Margin="2,0,0,0" SnapsToDevicePixels="true" Background="Transparent" VerticalAlignment="Center">
+
+                                    <BulletDecorator.Bullet>
+
+                                        <Microsoft_Windows_Themes:BulletChrome BorderBrush="{StaticResource checkBoxBorderBrush}" IsChecked="{Binding Path=IsSelected, 
+                                                RelativeSource={RelativeSource AncestorLevel=1, AncestorType={x:Type ListBoxItem}, Mode=FindAncestor}}" RenderMouseOver="{TemplateBinding IsMouseOver}" />
+
+                                    </BulletDecorator.Bullet>
+                                </BulletDecorator>
+                            </Grid>
+
+                            <!--This positions our content in the perfect position-->
+                            <Border Margin="-10,0,10,0" Grid.Column="1" SnapsToDevicePixels="true" x:Name="Bd" VerticalAlignment="Center" MinHeight="16" Background="Transparent">
+
+                                <ContentPresenter Content="{TemplateBinding Content}">
+                                    <ContentPresenter.Resources>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="TextWrapping" Value="Wrap"/>
+                                        </Style>
+                                    </ContentPresenter.Resources>
+
+                                </ContentPresenter>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+                            </Trigger>
+
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsSelected" Value="true"/>
+                                    <Condition Property="Selector.IsSelectionActive" Value="false"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                            </MultiTrigger>
+
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="aeroCheckListBoxStyle" TargetType="{x:Type ListBox}">
+            <Setter Property="ItemContainerStyle" Value="{StaticResource aeroCheckListBoxItemStyle}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBox}">
+                        <!--This is the secret to having the area that the CheckBoxes are in 
+                            blend with the color of the parent border control
+                            making this area look like a separate control.-->
+                        <Border CornerRadius="0" Background="{TemplateBinding Background}">
+
+                            <!--Disabling the HorizontalScrollBarVisibility allows the ContentPresenter 
+                                TextBlocks to wrap if the ListBox is not wide enought for the text-->
+                            <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+
+                                <!--This border is Mr. Cool.  It places a line down the middle of the 
+                                    control between the CheckBoxes and the ListBoxes items.-->
+                                <Border Background="{StaticResource scrollViewerBackgroundBrush}" Margin="20,0,0,0" BorderBrush="{StaticResource scrollViewerBorderBrush}" BorderThickness="1,0,0,0" x:Name="border">
+
+                                    <!--Our ListBoxItems are here-->
+                                    <ItemsPresenter/>
+
+                                </Border>
+                            </ScrollViewer>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </mui:ModernDialog.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="12*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!--<ListBox Background="{StaticResource outerBorderBackgroundBrush}"
+                         ItemsSource= "{Binding Source={StaticResource hairtypeViewSource}}"
+                         SelectionMode="Multiple"
+                         Style="{StaticResource aeroCheckListBoxStyle}"
+                         IsSynchronizedWithCurrentItem="True" FontSize="12" Height="Auto"
+                         VerticalAlignment="Stretch" SelectedIndex="0" DisplayMemberPath="hair_type"/>-->
+        <ComboBox x:Name="cmbBreedName"  ItemsSource="{Binding Source={StaticResource breednameViewSource}}"  Grid.Column="1" Margin="5"
+                                                    DisplayMemberPath="breed_name" SelectionChanged="cmbBreedName_SelectionChanged" >
+        </ComboBox>
+
+
+        <telerik:RadGridView x:Name="grdHairType"  AutoGenerateColumns="False"   ItemsSource="{Binding Source={StaticResource hairtypeViewSource}}" Grid.Row="1"
+                                 telerikControls:StyleManager.Theme="Transparent"  ShowGroupPanel="False"  RowIndicatorVisibility="Collapsed" SelectionChanged="factorType_SelectionChanged"  >
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewSelectColumn />
+                <!--<telerik:GridViewDataColumn Header="Hair Type" DataMemberBinding="{Binding HairType}" Width="10*" />-->
+                <telerik:GridViewDataColumn Header="Hair type" Width="*">
+                    <telerik:GridViewDataColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="50" />
+                                </Grid.ColumnDefinitions>
+                                <Image  Height="50" Width="50" Grid.Column="0" Source="{Binding photo}" />
+                                <TextBlock Text="{Binding HairType}"  Grid.Column="1" />
+                            </Grid>
+                        </DataTemplate>
+                    </telerik:GridViewDataColumn.CellTemplate>
+                </telerik:GridViewDataColumn>
+            </telerik:RadGridView.Columns>
+
+        </telerik:RadGridView>
+
+        <telerik:RadGridView x:Name="grdColorType"  AutoGenerateColumns="False"   ItemsSource="{Binding Source={StaticResource colortypeViewSource}}" Grid.Row="1" SelectionChanged="factorType_SelectionChanged"
+                                 telerikControls:StyleManager.Theme="Transparent"  Grid.Column="1" ShowGroupPanel="False"  RowIndicatorVisibility="Collapsed"  >
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewSelectColumn />
+
+                <telerik:GridViewDataColumn Header="Color type"  Width="*">
+                    <telerik:GridViewDataColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="50" />
+                                </Grid.ColumnDefinitions>
+                                <Image  Height="50" Width="50" Grid.Column="0" Source="{Binding photo}" >
+                                </Image>
+                                <TextBlock Text="{Binding ColorType}"  Grid.Column="1" />
+                            </Grid>
+                        </DataTemplate>
+                    </telerik:GridViewDataColumn.CellTemplate>
+                </telerik:GridViewDataColumn>
+
+            </telerik:RadGridView.Columns>
+
+        </telerik:RadGridView>
+
+        <telerik:RadGridView x:Name="grdSizeType"  AutoGenerateColumns="False"   ItemsSource="{Binding Source={StaticResource sizetypeViewSource}}" Grid.Column="2" Grid.Row="1" SelectionChanged="factorType_SelectionChanged"
+                                 telerikControls:StyleManager.Theme="Transparent" ShowGroupPanel="False"  RowIndicatorVisibility="Collapsed" >
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewSelectColumn />
+                <!--<telerik:GridViewDataColumn Header="Size Type" DataMemberBinding="{Binding SizeType}" Width="10*" />-->
+                <telerik:GridViewDataColumn Header="Size type"  Width="*">
+                    <telerik:GridViewDataColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="50" />
+                                </Grid.ColumnDefinitions>
+                                <Image  Height="50" Width="50" Grid.Column="0" Source="{Binding photo}" >
+                                </Image>
+                                <TextBlock Text="{Binding SizeType}"  Grid.Column="1" />
+                            </Grid>
+                        </DataTemplate>
+                    </telerik:GridViewDataColumn.CellTemplate>
+                </telerik:GridViewDataColumn>
+            </telerik:RadGridView.Columns>
+
+        </telerik:RadGridView>
+
+
+        <telerik:RadGridView x:Name="grdBreeds"  AutoGenerateColumns="False"   Grid.ColumnSpan="3" Grid.Row="2" 
+                                 telerikControls:StyleManager.Theme="Transparent"  ShowGroupPanel="False"  RowIndicatorVisibility="Collapsed" Margin="15" >
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="id" DataMemberBinding="{Binding breed_id}" Width="2*" />
+                <telerik:GridViewDataColumn Header="Breed" DataMemberBinding="{Binding breed_name}" Width="10*" />
+            </telerik:RadGridView.Columns>
+
+        </telerik:RadGridView>
+    </Grid>
+    
+</mui:ModernDialog>

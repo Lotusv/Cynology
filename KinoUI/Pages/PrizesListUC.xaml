@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="KinoUI.Pages.PrizesListUC"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:local="clr-namespace:KinoUI"
+
+             mc:Ignorable="d" d:DesignWidth="150" d:DesignHeight="150" >
+    <Grid  >
+        <Grid.Resources>
+
+            <Style TargetType="mui:BBCodeBlock" >
+                <Setter Property="LinkNavigator">
+                    <Setter.Value>
+                        <mui:DefaultLinkNavigator>
+                            <mui:DefaultLinkNavigator.Commands>
+                                <local:SampleDisabledCommand x:Key="cmd://disabled" />
+                                <local:SampleMsgBoxCommand x:Key="cmd://msgbox" />
+                                <local:SampleParameterCommand x:Key="cmd://parameter" />
+                            </mui:DefaultLinkNavigator.Commands>
+                        </mui:DefaultLinkNavigator>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <StackPanel >
+            <ListBox>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="Background" Value="LightSteelBlue"/>
+                        <Setter Property="Margin" Value="5"/>
+                        <Setter Property="Padding" Value="5"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="Background" Value="Aqua"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Setter Property="BorderBrush" Value="Black"/>
+                            </Trigger>
+
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="Background" Value="Aqua"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Setter Property="BorderBrush" Value="Red"/>
+                            </Trigger>
+
+                        </Style.Triggers>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <mui:BBCodeBlock BBCode="[url=/Content/Directories/FirstLevelTemplateUC.xaml]First Level Templates[/url]" />
+                <mui:BBCodeBlock BBCode="[url=/Content/Directories/NextLevelTemplateUC.xaml]Next Level Templates[/url]" />
+
+
+            </ListBox>
+
+
+
+            <telerik:RadButton ToolTip="Back" Margin="2"  Name="BackBtn" Width="35" Click="BackBtn_Click">
+                <Image  Source="Images\back.png"  Height="30" />
+            </telerik:RadButton>
+        </StackPanel>
+
+
+    </Grid>
+</UserControl>

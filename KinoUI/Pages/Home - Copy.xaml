@@ -1,0 +1,271 @@
+﻿<UserControl x:Class="KinoUI.Pages.Home"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:local="clr-namespace:KinoUI"
+             xmlns:mymodel="clr-namespace:KinoUI.Model"
+             mc:Ignorable="d" 
+             d:DesignHeight="577" d:DesignWidth="723">
+    <UserControl.Resources>
+        <Style x:Key="TransitionButton" TargetType="telerik:RadButton">
+            <Setter Property="Background" Value="{x:Null}" />
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="telerik:RadButton">
+                        <Grid x:Name="Root">
+                            <ContentPresenter />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <mymodel:TransitionItems x:Key="Medalists">
+            <mymodel:TransitionItems.MyTiles>
+                <mymodel:MyTile Photo="../Pages/images/bd_icon.jpg" Width="341" Height="145"/>
+                <mymodel:MyTile Photo="../Pages/images/bd_icon.jpg" Width="341" Height="145"/>
+            </mymodel:TransitionItems.MyTiles>
+            <mymodel:TransitionItems.Transitions>
+                <mymodel:TransitionSet>
+                    <mymodel:TransitionSet.Transition>
+                        <telerik:PerspectiveRotationTransition Direction="Right">
+                            <telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                            <telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                        </telerik:PerspectiveRotationTransition>
+                    </mymodel:TransitionSet.Transition>
+                </mymodel:TransitionSet>
+            </mymodel:TransitionItems.Transitions>
+        </mymodel:TransitionItems>
+        <mymodel:TransitionItems x:Key="FirstPlace_Men">
+            <mymodel:TransitionItems.MyTiles>
+                <mymodel:MyTile  Photo="images\breeds.jpg" Width="170" Height="145"/>
+                <mymodel:MyTile   Width="170" Height="145">
+                    
+                </mymodel:MyTile>
+                
+            </mymodel:TransitionItems.MyTiles>
+            <mymodel:TransitionItems.Transitions>
+                <mymodel:TransitionSet>
+                    <mymodel:TransitionSet.Transition>
+                        <telerik:PerspectiveRotationTransition Direction="Left" NewPlaneCenterOfRotationX="0" OldPlaneCenterOfRotationX="1">
+                            <telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                            <telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                        </telerik:PerspectiveRotationTransition>
+                    </mymodel:TransitionSet.Transition>
+                </mymodel:TransitionSet>
+            </mymodel:TransitionItems.Transitions>
+        </mymodel:TransitionItems>
+        <mymodel:TransitionItems x:Key="SecondPlace_Men">
+            <mymodel:TransitionItems.MyTiles>
+                <mymodel:MyTile  Photo="images\breeds2.jpg" Width="170" Height="145"/>
+                <mymodel:MyTile  Photo="images\breeds2.jpg" Width="170" Height="145"/>
+            </mymodel:TransitionItems.MyTiles>
+            <mymodel:TransitionItems.Transitions>
+                <mymodel:TransitionSet>
+                    <mymodel:TransitionSet.Transition>
+                        <telerik:PerspectiveRotationTransition Direction="Left" NewPlaneCenterOfRotationZ="0.4" OldPlaneCenterOfRotationZ="0.4" RotationLength="90">
+                            <telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                            <telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                        </telerik:PerspectiveRotationTransition>
+                    </mymodel:TransitionSet.Transition>
+                </mymodel:TransitionSet>
+            </mymodel:TransitionItems.Transitions>
+        </mymodel:TransitionItems>
+        <mymodel:TransitionItems x:Key="ThirdPlace_Men">
+            <mymodel:TransitionItems.MyTiles>
+                <mymodel:MyTile  Photo="images\breeds3.jpg" Width="170" Height="145" />
+                <mymodel:MyTile  Photo="images\breeds3.jpg" Width="170" Height="145"/>
+            </mymodel:TransitionItems.MyTiles>
+            <mymodel:TransitionItems.Transitions>
+                <mymodel:TransitionSet>
+                    <mymodel:TransitionSet.Transition>
+                        <telerik:PerspectiveRotationTransition Direction="Left" NewPlaneCenterOfRotationZ="-0.15" OldPlaneCenterOfRotationZ="-0.15">
+                            <telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                            <telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                        </telerik:PerspectiveRotationTransition>
+                    </mymodel:TransitionSet.Transition>
+                </mymodel:TransitionSet>
+            </mymodel:TransitionItems.Transitions>
+        </mymodel:TransitionItems>
+        <mymodel:TransitionItems x:Key="Photo_Men">
+            <mymodel:TransitionItems.MyTiles>
+                <mymodel:MyTile  Photo="images\cacib_10.jpg" Width="170" Height="145" />
+                <mymodel:MyTile  Photo="images\cacib_10.jpg" Width="170" Height="145"/>
+            </mymodel:TransitionItems.MyTiles>
+            <mymodel:TransitionItems.Transitions>
+                <mymodel:TransitionSet>
+                    <mymodel:TransitionSet.Transition>
+                        <telerik:PerspectiveRotationTransition Direction="Right" NewPlaneCenterOfRotationZ="-0.25" OldPlaneCenterOfRotationZ="-0.25">
+                            <telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                            <telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                        </telerik:PerspectiveRotationTransition>
+                    </mymodel:TransitionSet.Transition>
+                </mymodel:TransitionSet>
+            </mymodel:TransitionItems.Transitions>
+        </mymodel:TransitionItems>
+        <mymodel:TransitionItems x:Key="Medalists_Women">
+            <mymodel:TransitionItems.MyTiles>
+                <mymodel:MyTile Photo="images\directory-icon.png" Width="170" Height="291" />
+                <mymodel:MyTile Photo="images\directory-icon.png" Width="170" Height="291"/>
+            </mymodel:TransitionItems.MyTiles>
+            <mymodel:TransitionItems.Transitions>
+                <mymodel:TransitionSet>
+                    <mymodel:TransitionSet.Transition>
+                        <telerik:FlipWarpTransition />
+                    </mymodel:TransitionSet.Transition>
+                </mymodel:TransitionSet>
+            </mymodel:TransitionItems.Transitions>
+        </mymodel:TransitionItems>
+        <mymodel:TransitionItems x:Key="FirstPlace_Women">
+            <mymodel:TransitionItems.MyTiles>
+                <mymodel:MyTile  Photo="images\dog-breeds.jpg" Width="170" Height="145" />
+                <mymodel:MyTile  Photo="images\dog-breeds.jpg" Width="170" Height="145" />
+            </mymodel:TransitionItems.MyTiles>
+            <mymodel:TransitionItems.Transitions>
+                <mymodel:TransitionSet>
+                    <mymodel:TransitionSet.Transition>
+                        <telerik:MotionBlurredZoomTransition />
+                    </mymodel:TransitionSet.Transition>
+                </mymodel:TransitionSet>
+            </mymodel:TransitionItems.Transitions>
+        </mymodel:TransitionItems>
+        <mymodel:TransitionItems x:Key="SecondPlace_Women">
+            <mymodel:TransitionItems.MyTiles>
+                <mymodel:MyTile  Photo="images\FCI-certificate.jpg" Width="170" Height="145" />
+                <mymodel:MyTile  Photo="images\FCI-certificate.jpg" Width="170" Height="145"/>
+            </mymodel:TransitionItems.MyTiles>
+            <mymodel:TransitionItems.Transitions>
+                <mymodel:TransitionSet>
+                    <mymodel:TransitionSet.Transition>
+                        <telerik:PixelateTransition />
+                    </mymodel:TransitionSet.Transition>
+                </mymodel:TransitionSet>
+            </mymodel:TransitionItems.Transitions>
+        </mymodel:TransitionItems>
+        <mymodel:TransitionItems x:Key="ThirdPlace_Women">
+            <mymodel:TransitionItems.MyTiles>
+                <mymodel:MyTile  Photo="images\fci1.gif" Width="170" Height="145" />
+                <mymodel:MyTile  Photo="images\pappy.jpg" Width="170" Height="145" />
+            </mymodel:TransitionItems.MyTiles>
+            <mymodel:TransitionItems.Transitions>
+                <mymodel:TransitionSet>
+                    <mymodel:TransitionSet.Transition>
+                        <telerik:RollTransition />
+                    </mymodel:TransitionSet.Transition>
+                </mymodel:TransitionSet>
+            </mymodel:TransitionItems.Transitions>
+        </mymodel:TransitionItems>
+        <mymodel:TransitionItems x:Key="Photo_Women">
+            <mymodel:TransitionItems.MyTiles>
+                <mymodel:MyTile  Photo="images\kennelclub.jpg" Width="170" Height="145" />
+                <mymodel:MyTile  Photo="images\Priz.jpg" Width="170" Height="145" />
+            </mymodel:TransitionItems.MyTiles>
+            <mymodel:TransitionItems.Transitions>
+                <mymodel:TransitionSet>
+                    <mymodel:TransitionSet.Transition>
+                        <telerik:WaveTransition />
+                    </mymodel:TransitionSet.Transition>
+                </mymodel:TransitionSet>
+            </mymodel:TransitionItems.Transitions>
+        </mymodel:TransitionItems>
+
+        <DataTemplate x:Key="ItemTemplate">
+            <Image Source="{Binding Photo}" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill"/>
+        </DataTemplate>
+
+    </UserControl.Resources>
+    <Grid Style="{StaticResource ContentRoot}">
+        <Grid.Background>
+            <ImageBrush ImageSource="images\Dogs.png" Stretch="Uniform" />
+        </Grid.Background>
+        <StackPanel x:Name="LayoutRoot" Orientation="Vertical">
+            <Grid>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="146" />
+                            <RowDefinition Height="146" />
+                            <RowDefinition Height="145" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="171"/>
+                            <ColumnDefinition Width="170" />
+                        </Grid.ColumnDefinitions>
+
+                        <telerik:RadButton Style="{StaticResource TransitionButton}" Command="{Binding SelectNext}" Grid.ColumnSpan="2" DataContext="{StaticResource Medalists}">
+                            <telerik:RadTransitionControl Transition="{Binding CurrentTransition}" ContentTemplate="{StaticResource ItemTemplate}" Content="{Binding SelectedMyTile}" Duration="0:0:0.75" />
+                        </telerik:RadButton>
+                        <telerik:RadButton Style="{StaticResource TransitionButton}" Command="{Binding SelectNext}" Grid.Row="1" DataContext="{StaticResource FirstPlace_Men}" HorizontalAlignment="Left">
+                            <telerik:RadTransitionControl Transition="{Binding CurrentTransition}" ContentTemplate="{StaticResource ItemTemplate}" Content="{Binding SelectedMyTile}" Duration="0:0:0.75"/>
+                        </telerik:RadButton>
+                        <telerik:RadButton Style="{StaticResource TransitionButton}" Command="{Binding SelectNext}"  Grid.Row="1" Grid.Column="1" DataContext="{StaticResource SecondPlace_Men}">
+                            <telerik:RadTransitionControl Transition="{Binding CurrentTransition}" ContentTemplate="{StaticResource ItemTemplate}" Content="{Binding SelectedMyTile}" Duration="0:0:0.75" />
+                        </telerik:RadButton>
+                        <telerik:RadButton Style="{StaticResource TransitionButton}" Command="{Binding SelectNext}" Grid.Row="2" DataContext="{StaticResource ThirdPlace_Men}">
+                            <telerik:RadTransitionControl Transition="{Binding CurrentTransition}" ContentTemplate="{StaticResource ItemTemplate}" Content="{Binding SelectedMyTile}" Duration="0:0:0.75" />
+                        </telerik:RadButton>
+                        <telerik:RadButton Style="{StaticResource TransitionButton}" Command="{Binding SelectNext}" Grid.Row="2" Grid.Column="1" DataContext="{StaticResource Photo_Men}">
+                            <telerik:RadTransitionControl Transition="{Binding CurrentTransition}" ContentTemplate="{StaticResource ItemTemplate}" Content="{Binding SelectedMyTile}" Duration="0:0:0.75" />
+                        </telerik:RadButton>
+                    </Grid>
+                    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1 0 0 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="146" />
+                            <RowDefinition Height="146" />
+                            <RowDefinition Height="145" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="171"/>
+                            <ColumnDefinition Width="170" />
+                        </Grid.ColumnDefinitions>
+
+                        <telerik:RadButton Style="{StaticResource TransitionButton}" Command="{Binding SelectNext}" Grid.RowSpan="2" DataContext="{StaticResource Medalists_Women}">
+                            <telerik:RadTransitionControl Transition="{Binding CurrentTransition}" ContentTemplate="{StaticResource ItemTemplate}" Content="{Binding SelectedMyTile}" Duration="0:0:0.75" />
+                        </telerik:RadButton>
+                        <telerik:RadButton Style="{StaticResource TransitionButton}" Command="{Binding SelectNext}" Grid.Column="1" DataContext="{StaticResource Photo_Women}" HorizontalAlignment="Left">
+                            <telerik:RadTransitionControl Transition="{Binding CurrentTransition}" ContentTemplate="{StaticResource ItemTemplate}" Content="{Binding SelectedMyTile}" Duration="0:0:0.75" />
+                        </telerik:RadButton>
+                        <telerik:RadButton Style="{StaticResource TransitionButton}" Command="{Binding SelectNext}"  Grid.Row="1" Grid.Column="1" DataContext="{StaticResource FirstPlace_Women}">
+                            <telerik:RadTransitionControl Transition="{Binding CurrentTransition}" ContentTemplate="{StaticResource ItemTemplate}" Content="{Binding SelectedMyTile}" Duration="0:0:0.75" />
+                        </telerik:RadButton>
+                        <telerik:RadButton Style="{StaticResource TransitionButton}" Command="{Binding SelectNext}" Grid.Row="2" DataContext="{StaticResource SecondPlace_Women}">
+                            <telerik:RadTransitionControl Transition="{Binding CurrentTransition}" ContentTemplate="{StaticResource ItemTemplate}" Content="{Binding SelectedMyTile}" Duration="0:0:0.75" />
+                        </telerik:RadButton>
+                        <telerik:RadButton Style="{StaticResource TransitionButton}" Command="{Binding SelectNext}" Grid.Row="2" Grid.Column="1" DataContext="{StaticResource ThirdPlace_Women}">
+                            <telerik:RadTransitionControl Transition="{Binding CurrentTransition}" ContentTemplate="{StaticResource ItemTemplate}" Content="{Binding SelectedMyTile}" Duration="0:0:0.75"/>
+                        </telerik:RadButton>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+            <TextBlock Text="source: wikipedia.org" HorizontalAlignment="Right" Foreground="#FFD4D6D6"
+            FontSize="10" VerticalAlignment="Top" />
+        </StackPanel>
+    </Grid>
+</UserControl>

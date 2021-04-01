@@ -1,0 +1,251 @@
+﻿<Window x:Class="KinoUI.Content.AddBreedFactorsTypeDlg"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:telerikControls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+        xmlns:local="clr-namespace:KinoUI"
+        xmlns:data="clr-namespace:KinoDataLibrary;assembly=KinoDataLibrary"
+        Title="UniversalSplit" Height="342" Width="613"
+    Topmost="True" Top="50"
+    AllowsTransparency="True" Background="Transparent" WindowStyle="None"
+    ShowInTaskbar="False" Foreground="#007acc" MaxWidth="5000" MaxHeight="5000" WindowStartupLocation="CenterScreen" >
+    <Window.Resources>
+        <data:KinoDataSet x:Key="kinoDataSet"/>
+        <CollectionViewSource x:Key="ColorTypesViewSource"  />
+        <CollectionViewSource x:Key="BreedColorTypesViewSource"  />
+
+        <CollectionViewSource x:Key="HairTypesViewSource"  />
+        <CollectionViewSource x:Key="BreedHairTypesViewSource"  />
+
+        <CollectionViewSource x:Key="SizeTypesViewSource"  />
+        <CollectionViewSource x:Key="BreedSizeTypesViewSource"  />
+
+        <LinearGradientBrush x:Key="notSelectedBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFF8FDFF" Offset="0.238" />
+            <GradientStop Color="#FF0DA0FC" Offset="1" />
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="SelectedBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Gray" Offset="0" />
+            <GradientStop Color="#FFF8F2F2" Offset="0.75" />
+        </LinearGradientBrush>
+    </Window.Resources>
+
+    <Border BorderBrush="LightBlue" BorderThickness="1" Margin="5" CornerRadius="10,10,50,50">
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0" BlurRadius="5" Color="LightBlue"/>
+
+        </Border.Effect>
+        <Grid x:Name="mainGrid" Height="277" Width="576">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.ColumnSpan="3" Margin="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnHairType"  Click="btnHairType_Click">Hair Type</Button>
+                <Button x:Name="btnColorType" Grid.Column="1"  Click="btnColorType_Click">Color Type</Button>
+                <Button x:Name="btnSizeType" Grid.Column="2"  Click="btnSizeType_Click">Size Type</Button>
+            </Grid>
+            <Image x:Name="imgClose" Source="../Pages/images/Red_Close.png"  Height="50" Grid.Row="2" Cursor="Hand" MouseLeftButtonUp="Image_MouseLeftButtonUp"></Image>
+            <Image x:Name="imgApply" Source="../Pages/images/apply_y.png" Height="50" Grid.Column="2" Grid.Row="2" Cursor="Hand" MouseLeftButtonUp="imgApply_MouseLeftButtonUp" ></Image>
+
+            <!--<local:TransUC Grid.Row="1" Grid.Column="1" Width="500"></local:TransUC>-->
+
+            <telerik:RadTransitionControl x:Name="radTransitionControl1" Grid.Row="1" Grid.ColumnSpan="3"  >
+                <telerik:RadTransitionControl.Transition>
+                    <telerik:PerspectiveRotationTransition Direction="Left" NewPlaneCenterOfRotationZ="0.4" OldPlaneCenterOfRotationZ="0.4" RotationLength="90">
+                        <telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                            <CubicEase EasingMode="EaseInOut" />
+                        </telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                        <telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                            <CubicEase EasingMode="EaseInOut" />
+                        </telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                    </telerik:PerspectiveRotationTransition>
+                </telerik:RadTransitionControl.Transition>
+            </telerik:RadTransitionControl>
+
+
+
+            <StackPanel x:Name="pnlHairType">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <ScrollViewer>
+                        <ListBox x:Name="lstHairTypes"  ItemsSource="{Binding Source={StaticResource HairTypesViewSource}}" MaxHeight="150">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding hair_type}" />
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
+
+                    <StackPanel Orientation="Vertical" Grid.Column="1" VerticalAlignment="Center">
+                        <telerik:RadButton ToolTip="Add selected to order list" Margin="2"  Height="50" Width="80" Click="AddHairTypeBtn_Click"   Name="AddHairTypeBtn">
+                            <Image  Source="../Pages/images/arrowsright.png"  Width="60" Margin="5" />
+                        </telerik:RadButton>
+
+                        <telerik:RadButton ToolTip="Remove from order list" Margin="2"  Height="50" Width="80" Click="RemoveHairTypeBtn_Click"   Name="RemoveHairTypeBtn" OpacityMask="#E6000000">
+                            <Image  Source="../Pages/images/arrowsleft.png"  Width="60" Margin="5" />
+                        </telerik:RadButton>
+                    </StackPanel>
+                    <ScrollViewer Grid.Column="2">
+                        <ListBox x:Name="lstBreedHairTypes"  ItemsSource="{Binding Source={StaticResource BreedHairTypesViewSource}}" MaxHeight="150">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding HairType}" />
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
+
+                </Grid>
+
+            </StackPanel>
+            <StackPanel x:Name="pnlSizeType" >
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <ScrollViewer>
+                        <ListBox x:Name="lstSizeTypes"  ItemsSource="{Binding Source={StaticResource SizeTypesViewSource}}" MaxHeight="150">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding size_type}" />
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
+
+                    <StackPanel Orientation="Vertical" Grid.Column="1" VerticalAlignment="Center">
+                        <telerik:RadButton ToolTip="Add selected to order list" Margin="2"  Height="50" Width="80" Click="AddSizeTypeBtn_Click"   Name="AddSizeTypeBtn">
+                            <Image  Source="../Pages/images/arrowsright.png"  Width="60" Margin="5" />
+                        </telerik:RadButton>
+
+                        <telerik:RadButton ToolTip="Remove from order list" Margin="2"  Height="50" Width="80" Click="RemoveSizeTypeBtn_Click"   Name="RemoveSizeTypeBtn" OpacityMask="#E6000000">
+                            <Image  Source="../Pages/images/arrowsleft.png"  Width="60" Margin="5" />
+                        </telerik:RadButton>
+                    </StackPanel>
+                    <ScrollViewer Grid.Column="2">
+                        <ListBox x:Name="lstBreedSizeTypes"  ItemsSource="{Binding Source={StaticResource BreedSizeTypesViewSource}}" MaxHeight="150">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding SizeType}" />
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
+
+                </Grid>
+
+            </StackPanel>
+            <StackPanel x:Name="pnlColorType"  Grid.Row="1" Grid.ColumnSpan="3">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <ScrollViewer>
+                        <ListBox x:Name="lstColorTypes"  ItemsSource="{Binding Source={StaticResource ColorTypesViewSource}}" MaxHeight="150">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding color_type}" />
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
+                    
+                    <StackPanel Orientation="Vertical" Grid.Column="1" VerticalAlignment="Center">
+                        <telerik:RadButton ToolTip="Add selected to order list" Margin="2"  Height="50" Width="80" Click="AddColorTypeBtn_Click"   Name="AddColorTypeBtn">
+                            <Image  Source="../Pages/images/arrowsright.png"  Width="60" Margin="5" />
+                        </telerik:RadButton>
+
+                        <telerik:RadButton ToolTip="Remove from order list" Margin="2"  Height="50" Width="80" Click="RemoveColorTypeBtn_Click"   Name="RemoveColorTypeBtn" OpacityMask="#E6000000">
+                            <Image  Source="../Pages/images/arrowsleft.png"  Width="60" Margin="5" />
+                        </telerik:RadButton>    
+                    </StackPanel>
+                    <ScrollViewer Grid.Column="2">
+                        <ListBox x:Name="lstBreedColorTypes"  ItemsSource="{Binding Source={StaticResource BreedColorTypesViewSource}}" MaxHeight="150">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding ColorType}" />
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
+                    
+                </Grid>
+            </StackPanel>
+
+            <!--<telerik:RadButton Style="{StaticResource TransitionButton}" Command="{Binding SelectNext}"  Grid.Row="1" Grid.Column="1" DataContext="{StaticResource SecondPlace_Men}">
+                <telerik:RadTransitionControl Transition="{Binding CurrentTransition}" ContentTemplate="{StaticResource ItemTemplate}" Content="{Binding SelectedPerson}" Duration="0:0:0.75" />
+            </telerik:RadButton>-->
+
+            <!--<telerik:RadTransitionControl x:Name="radTransitionControl" Grid.Row="1" Grid.ColumnSpan="3">
+                <telerik:RadTransitionControl.Easing>
+                    <BackEase EasingMode="EaseInOut" Amplitude="0.5" />
+                </telerik:RadTransitionControl.Easing>
+                <StackPanel x:Name="pnlSplit" ></StackPanel>
+                <StackPanel x:Name="pnlCancel" >
+                    <telerik:RadNumericUpDown x:Name="nmbCancel"
+                MinWidth="200" Margin="50" ValueFormat="Numeric" Minimum="0" Maximum="5" SmallChange="1" LargeChange="1" NumberDecimalDigits="0"
+                HorizontalAlignment="Center" VerticalAlignment="Center"  Value="0" FontFamily="Segoe UI" FontSize="24" telerikControls:StyleManager.Theme="Windows8Touch" />
+                </StackPanel>
+                <StackPanel x:Name="pnlVoid" ></StackPanel>
+            </telerik:RadTransitionControl>-->
+
+            <!--<local:TransitionItems x:Name="SecondPlace_Men" Grid.Row="1" Grid.ColumnSpan="3">
+                <local:TransitionItems.StackPanels>
+                    <StackPanel x:Name="pnlSplit" ></StackPanel>
+                    <StackPanel x:Name="pnlCancel" >
+                        <telerik:RadNumericUpDown x:Name="nmbCancel"
+                MinWidth="200" Margin="50" ValueFormat="Numeric" Minimum="0" Maximum="5" SmallChange="1" LargeChange="1" NumberDecimalDigits="0"
+                HorizontalAlignment="Center" VerticalAlignment="Center"  Value="0" FontFamily="Segoe UI" FontSize="24" telerikControls:StyleManager.Theme="Windows8Touch" />
+                    </StackPanel>
+                    <StackPanel x:Name="pnlVoid" ></StackPanel>
+                </local:TransitionItems.StackPanels>
+                <local:TransitionItems.Transitions>
+                    <local:TransitionSet>
+                        <local:TransitionSet.Transition>
+                            <telerik:PerspectiveRotationTransition Direction="Left" NewPlaneCenterOfRotationZ="0.4" OldPlaneCenterOfRotationZ="0.4" RotationLength="90">
+                                <telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                    <CubicEase EasingMode="EaseInOut" />
+                                </telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                <telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                    <CubicEase EasingMode="EaseInOut" />
+                                </telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                            </telerik:PerspectiveRotationTransition>
+                        </local:TransitionSet.Transition>
+                    </local:TransitionSet>
+                </local:TransitionItems.Transitions>
+            </local:TransitionItems>-->
+
+
+
+        </Grid>
+        <Border.Background>
+            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                <GradientStop Color="#FFB1B1B1" Offset="0" />
+                <GradientStop Color="White" Offset="1" />
+            </LinearGradientBrush>
+        </Border.Background>
+    </Border>
+    </Window>

@@ -1,0 +1,115 @@
+﻿<UserControl x:Class="KinoUI.Pages.DirectoriesListUC"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:local="clr-namespace:KinoUI"
+
+             mc:Ignorable="d" d:DesignWidth="150" d:DesignHeight="350" >
+    <Grid  >
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <!-- define an implicit BBCodeBlock style and add custom commands to the link navigator -->
+            <Style TargetType="mui:BBCodeBlock" >
+                <Setter Property="LinkNavigator">
+                    <Setter.Value>
+                        <mui:DefaultLinkNavigator>
+                            <mui:DefaultLinkNavigator.Commands>
+                                <local:SampleDisabledCommand x:Key="cmd://disabled" />
+                                <local:SampleMsgBoxCommand x:Key="cmd://msgbox" />
+                                <local:SampleParameterCommand x:Key="cmd://parameter" />
+                            </mui:DefaultLinkNavigator.Commands>
+                        </mui:DefaultLinkNavigator>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+    
+            <ListBox>
+                <ListBox.Resources>
+                    <!--<Style TargetType="mui:BBCodeBlock" BasedOn="{StaticResource {x:Type mui:BBCodeBlock}}">
+                        <Setter Property="LinkNavigator." Value="Red" />
+                    </Style>-->
+                </ListBox.Resources>
+                    <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="Background" Value="LightSteelBlue"/>
+                        <Setter Property="Margin" Value="5"/>
+                        <Setter Property="Padding" Value="5"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="Background" Value="Aqua"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Setter Property="BorderBrush" Value="Black"/>
+                            </Trigger>
+
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="Background" Value="Aqua"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Setter Property="BorderBrush" Value="Red"/>
+                            </Trigger>
+
+                        </Style.Triggers>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                
+                <!--<mui:BBCodeBlock BBCode="[url=/Content/Directories/BreedNameUC.xaml]Breed Names[/url]" />-->
+                <mui:BBCodeBlock BBCode="[url=/Content/Directories/ExhibitionCategoryUC.xaml]Exhibition Categories[/url]" />
+                <mui:BBCodeBlock BBCode="[url=/Content/Directories/ExhibitionStatusesUC.xaml]Exhibition Statuses[/url]" />
+                <mui:BBCodeBlock BBCode="[url=/Content/Directories/DocumentypesUC.xaml]Document Types[/url]" />
+                <mui:BBCodeBlock BBCode="[url=/Content/Directories/ChampionStatusesUC.xaml]Champion Statuses[/url]" />
+            <mui:BBCodeBlock BBCode="[url=/Content/Directories/TrialTypesUC.xaml]Trial types[/url]" />
+
+                <mui:BBCodeBlock BBCode="[url=/Content/Directories/DewormingTypeUC.xaml]Deworming Types[/url]" />
+                <mui:BBCodeBlock BBCode="[url=/Content/Directories/EctoparasitTypeUC.xaml]Ectoparasit Types[/url]" />
+                <mui:BBCodeBlock BBCode="[url=/Content/Directories/HealthTestTypeUC.xaml]HealthTest Types[/url]" />
+                <mui:BBCodeBlock BBCode="[url=/Content/Directories/VaccineTypeUC.xaml]Vaccine Types[/url]" />
+            </ListBox>
+
+            
+            <!--<mui:BBCodeBlock xml:space="preserve">» navigate to the [url=/Content/Directories/AgeGroupUC.xaml]introduction page[/url]
+                
+» navigate to [url=http://www.google.com]http://www.google.com[/url] in the default browser
+» send an email to [url=mailto:foo@test.com?subject=This%20is%20the%20subject&amp;body=This%20is%20the%20body]foo@test.com[/url]
+                </mui:BBCodeBlock>-->
+
+            <!--<TextBlock Text="BUILTIN COMMANDS" Style="{StaticResource Heading2}" />
+            
+            <mui:BBCodeBlock xml:space="preserve">The [b]LinkCommands.NavigateLink[/b] routed command adds support for link navigation to any control that supports commanding, not just BBCodeBlock. The routed command is implemented by ModernWindow, which uses the ModernWindow.LinkNavigator to perform the actual navigation.
+                </mui:BBCodeBlock>-->
+
+            <!--<StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                <Button Content="introduction" Margin="0,0,4,0" Command="mui:LinkCommands.NavigateLink" CommandParameter="/Pages/Introduction.xaml"/>
+                <Button Content="google" Margin="0,0,4,0" Command="mui:LinkCommands.NavigateLink" CommandParameter="http://www.google.com"/>
+                
+            </StackPanel>-->
+            <telerik:RadButton ToolTip="Back" Margin="2"  Name="BackBtn" Width="35" Click="BackBtn_Click" Grid.Row="1">
+                <Image  Source="Images\back.png"  Height="30" />
+            </telerik:RadButton>
+      
+        <!--<mui:ModernTab Layout="List"   MouseDown="ModernTab_MouseDown">
+            <mui:ModernTab.Links>
+                <mui:Link DisplayName="Age groups" Source="/Content/Directories/AgeGroupUC.xaml"  />
+
+                <mui:Link DisplayName="Cities" Source="/Content/Directories/CityUC.xaml" />
+                <mui:Link DisplayName="Countries" Source="/Content/Directories/CountryUC.xaml" />
+
+                <mui:Link DisplayName="Exhibition Categories" Source="/Content/Directories/ExhibitionCategoryUC.xaml" />
+
+                <mui:Link DisplayName="Exhibition Statuses" Source="/Content/Directories/ExhibitionStatusesUC.xaml" />
+
+
+                <mui:Link DisplayName="Nationality" Source="/Content/Directories/NationalityUC.xaml" />
+
+
+            </mui:ModernTab.Links>
+        </mui:ModernTab>-->
+    </Grid>
+</UserControl>

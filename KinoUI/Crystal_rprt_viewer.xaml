@@ -1,0 +1,9 @@
+﻿<Window x:Class="KinoUI.Crystal_rprt_viewer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:cr="clr-namespace:CrystalDecisions.Windows.Forms;assembly=CrystalDecisions.Windows.Forms"
+        Title="WPF Crystal Report Viewer" Height="600" Width="800"  IsTabStop="False">
+    <Grid x:Name="grid1">
+        <!--<cr:CrystalReportsViewer Name="reportViewer" DataContext="{Binding UpdateSourceTrigger=Explicit}" ShowOpenFileButton="True" />-->
+    </Grid>
+</Window>

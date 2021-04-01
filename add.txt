@@ -1,0 +1,5 @@
++size
++coat
+birthdate only date
+breeder add address
+trial. trial type. date for pedigree last one

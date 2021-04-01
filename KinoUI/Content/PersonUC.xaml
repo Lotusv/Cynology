@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="KinoUI.Content.PersonUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:telerikControls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:data="clr-namespace:KinoDataLibrary;assembly=KinoDataLibrary"
+              xmlns:my="clr-namespace:KinoUI"
+             xmlns:content="clr-namespace:KinoUI.Content"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" x:Name="personUC"
+             d:DesignHeight="305" d:DesignWidth="767">
+    <UserControl.Resources>
+
+ 
+        <data:KinoDataSet x:Key="kinoDataSet" />
+
+        <CollectionViewSource x:Key="personStatusEnums" Source="{Binding DataContext.Func_PersonStatusEnums, RelativeSource={RelativeSource AncestorType={x:Type content:PersonUC}}}" />
+        <CollectionViewSource x:Key="personViewSource" Source="{Binding DataContext.tbl_person, RelativeSource={RelativeSource AncestorType={x:Type content:PersonUC}}}" />
+        <CollectionViewSource x:Key="sexViewSource" Source="{Binding DataContext.tbl_sex_type, RelativeSource={RelativeSource AncestorType={x:Type content:PersonUC}}}" />
+        <CollectionViewSource x:Key="countryViewSource" Source="{Binding DataContext.tbl_country, RelativeSource={RelativeSource AncestorType={x:Type content:PersonUC}}}" />
+        <CollectionViewSource x:Key="cityViewSource" Source="{Binding DataContext.tbl_city, RelativeSource={RelativeSource AncestorType={x:Type content:PersonUC}}}" />
+        <CollectionViewSource x:Key="nationalityViewSource" Source="{Binding DataContext.tbl_nationality, RelativeSource={RelativeSource AncestorType={x:Type content:PersonUC}}}" />
+
+        <my:IntToBooleanConverter x:Key="intToBoolconverter"/>
+        <Style TargetType="telerik:RadComboBoxItem">
+            <Setter Property="Background" Value="Beige"/>
+        </Style>
+    </UserControl.Resources>
+
+    <UserControl.DataContext>
+        <StaticResourceExtension ResourceKey="kinoDataSet"/>
+    </UserControl.DataContext>
+
+    <Grid >
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+        </Grid.RowDefinitions>
+        
+            <telerik:RadMenu>
+            <Border BorderThickness="2" CornerRadius="2"  BorderBrush="{DynamicResource BlackGradientbrush}">
+                     <telerik:RadMenuItem  x:Name="mnuSave" Click="mnuSave_Click">
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/Pages/images/apply_y.png"  />
+                    </telerik:RadMenuItem.Icon>
+                </telerik:RadMenuItem>          
+            </Border>
+ 
+
+            </telerik:RadMenu>
+        
+        <Grid  Grid.Row="1" DataContext="{StaticResource personViewSource}">
+            <telerik:RadGridView x:Name="grdPerson"  AutoGenerateColumns="False"  NewRowPosition="Top" ItemsSource="{Binding }" RowStyleSelector="{StaticResource modifiedRowStyle}"
+                                 telerikControls:StyleManager.Theme="Transparent" Margin="0,0,0,0" DataError="grdPerson_DataError"  RowValidating="gridview_RowValidating" Deleting="grdPerson_Deleting">
+
+                <telerik:RadGridView.Columns>
+
+
+                    <telerik:GridViewDataColumn Header="Name" DataMemberBinding="{Binding name}"  >
+                        
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn Header="Surname" DataMemberBinding="{Binding surname}"  />
+                    <telerik:GridViewDataColumn Header="Fathername" DataMemberBinding="{Binding father_name}"  />
+                    <telerik:GridViewDataColumn Header="Passport" DataMemberBinding="{Binding passport_no}"  />
+                    <telerik:GridViewDataColumn Header="Birth Date" DataMemberBinding="{Binding br_date}" DataFormatString="{} {0:dd.MM.yyyy}">
+                        <telerik:GridViewDataColumn.CellEditTemplate>
+                            <DataTemplate>
+                                <telerik:RadDateTimePicker SelectedValue="{Binding br_date, Mode=TwoWay}" InputMode="DatePicker"/>
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellEditTemplate>
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewComboBoxColumn Header="Nationality"   ItemsSource="{Binding Source={StaticResource nationalityViewSource}}" 
+                                                    DataMemberBinding="{Binding Mode=TwoWay, Path=nationality_id}" 
+                                                    SelectedValueMemberPath="nationality_id" 
+                                                    DisplayMemberPath="nationality"  />
+                    <telerik:GridViewComboBoxColumn Header="Sex"   ItemsSource="{Binding Source={StaticResource sexViewSource}}" 
+                                                    DataMemberBinding="{Binding Mode=TwoWay, Path=sex_type_id}" 
+                                                    SelectedValueMemberPath="sex_type_id" 
+                                                    DisplayMemberPath="sex"  />
+                    <telerik:GridViewComboBoxColumn Header="Country"   ItemsSource="{Binding Source={StaticResource countryViewSource}}" 
+                                                    DataMemberBinding="{Binding Mode=TwoWay, Path=country_id}" 
+                                                    SelectedValueMemberPath="country_id" 
+                                                    DisplayMemberPath="country_name"  />
+                    <telerik:GridViewComboBoxColumn Header="City"   ItemsSource="{Binding Source={StaticResource cityViewSource}}" 
+                                                    DataMemberBinding="{Binding Mode=TwoWay, Path=city_id}" 
+                                                    SelectedValueMemberPath="city_id" 
+                                                    DisplayMemberPath="city"  />
+                    <telerik:GridViewDataColumn Header="Address" DataMemberBinding="{Binding address}"  />
+                    <telerik:GridViewDataColumn Header="Phone" DataMemberBinding="{Binding phone}"  />
+                    <telerik:GridViewDataColumn Header="EMail" DataMemberBinding="{Binding email}"  />
+                    <!--<telerik:GridViewDataColumn Header="EMail" DataMemberBinding="{Binding password}"  />-->
+                    <telerik:GridViewCheckBoxColumn Header="Is Refery" DataMemberBinding= "{Binding IsRefery, Converter={StaticResource intToBoolconverter}}"  />
+
+                    <telerik:GridViewComboBoxColumn Header="Status"   ItemsSource="{Binding Source={StaticResource personStatusEnums}}" 
+                                                    DataMemberBinding="{Binding Mode=TwoWay, Path=PersonStatus}" 
+                                                    SelectedValueMemberPath="PersonStatusEnum" 
+                                                    DisplayMemberPath="PersonStatus" Width="1*"  />
+                </telerik:RadGridView.Columns>
+
+            </telerik:RadGridView>
+        </Grid>
+
+    </Grid>
+</UserControl>

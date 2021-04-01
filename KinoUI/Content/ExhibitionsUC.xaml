@@ -1,0 +1,126 @@
+﻿<UserControl x:Class="KinoUI.Content.ExhibitionsUC"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:telerikControls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:data="clr-namespace:KinoDataLibrary;assembly=KinoDataLibrary"
+              xmlns:my="clr-namespace:KinoUI"
+             xmlns:content="clr-namespace:KinoUI.Content"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" x:Name="clubsUC"
+             d:DesignHeight="305" d:DesignWidth="767">
+    <UserControl.Resources>
+        <data:KinoDataSet x:Key="kinoDataSet" />
+
+      
+
+        <CollectionViewSource x:Key="exhibitionViewSource" Source="{Binding DataContext.tbl_exhibition, RelativeSource={RelativeSource AncestorType={x:Type content:ExhibitionsUC}}}" />
+
+        <CollectionViewSource x:Key="countryViewSource" Source="{Binding DataContext.tbl_country, RelativeSource={RelativeSource AncestorType={x:Type content:ExhibitionsUC}}}" />
+        <CollectionViewSource x:Key="cityViewSource" Source="{Binding DataContext.tbl_city, RelativeSource={RelativeSource AncestorType={x:Type content:ExhibitionsUC}}}" />
+
+        <CollectionViewSource x:Key="exhcategoryViewSource" Source="{Binding DataContext.tbl_exhib_category, RelativeSource={RelativeSource AncestorType={x:Type content:ExhibitionsUC}}}" />
+        <CollectionViewSource x:Key="ExhibitionStatusViewSource" Source="{Binding DataContext.Func_ExhibitionStatusEnums, RelativeSource={RelativeSource AncestorType={x:Type content:ExhibitionsUC}}}" />
+
+        <my:IntToBooleanConverter x:Key="intToBoolconverter"/>
+        <Style TargetType="telerik:RadComboBoxItem">
+            <Setter Property="Background" Value="Beige"/>
+        </Style>
+    </UserControl.Resources>
+
+    <UserControl.DataContext>
+        <StaticResourceExtension ResourceKey="kinoDataSet"/>
+    </UserControl.DataContext>
+
+    <Grid >
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <telerik:RadMenu>
+                <Border BorderThickness="2" CornerRadius="2"  BorderBrush="{DynamicResource BlackGradientbrush}">
+                    <telerik:RadMenuItem  x:Name="mnuSave" Click="mnuSave_Click" ToolTip="Save changes">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/Pages/images/apply_y.png"  />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>                
+                </Border>
+
+                <Border BorderThickness="2" CornerRadius="2"  BorderBrush="{DynamicResource BlackGradientbrush}">
+                    <telerik:RadMenuItem  x:Name="mnuDogs" Click="mnuDogs_Click" ToolTip="Open Dogs List">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/Pages/images/exh_dogs.png"  />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                </Border>
+                <Border BorderThickness="2" CornerRadius="2"  BorderBrush="{DynamicResource BlackGradientbrush}">
+                    <telerik:RadMenuItem  x:Name="mnuCatalog" Click="mnuCatalog_Click" ToolTip="Open Catalog">
+                        
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/Pages/images/catalog2.png"  />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                </Border>
+                <Border BorderThickness="2" CornerRadius="2"  BorderBrush="{DynamicResource BlackGradientbrush}">
+                    <telerik:RadMenuItem x:Name="mnuReview" Click="mnuReview_Click" ToolTip="Open Review List">
+                        <telerik:RadMenuItem.Icon>
+                            <Image Source="/Pages/images/Todo.png"  />
+                        </telerik:RadMenuItem.Icon>
+                    </telerik:RadMenuItem>
+                </Border>
+                    
+            </telerik:RadMenu>
+        </StackPanel>
+        <Grid  Grid.Row="1" DataContext="{StaticResource exhibitionViewSource}">
+            <telerik:RadGridView x:Name="grdExhibitions"  AutoGenerateColumns="False"  NewRowPosition="Top" ItemsSource="{Binding }" RowValidating="gridview_RowValidating"
+                                 telerikControls:StyleManager.Theme="Transparent" Margin="0,0,0,0" RowStyleSelector="{StaticResource modifiedRowStyle}" Deleting="grdExhibitions_Deleting" >
+
+
+                <telerik:RadGridView.Columns>
+
+
+                    <telerik:GridViewDataColumn Header="Name" DataMemberBinding="{Binding exhibition_name}"  />
+
+                    <telerik:GridViewDataColumn Header="Date" DataMemberBinding="{Binding date}" DataFormatString="{} {0:dd.MMM.yyyy}">
+                        <telerik:GridViewDataColumn.CellEditTemplate>
+                            <DataTemplate>
+                                <telerik:RadDatePicker SelectedValue="{Binding date, Mode=TwoWay}" InputMode="DatePicker" />
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellEditTemplate>
+                    </telerik:GridViewDataColumn>
+
+                    <telerik:GridViewComboBoxColumn Header="Country"   ItemsSource="{Binding Source={StaticResource countryViewSource}}" 
+                                                    DataMemberBinding="{Binding Mode=TwoWay, Path=country_id}" 
+                                                    SelectedValueMemberPath="country_id" 
+                                                    DisplayMemberPath="country_name"  />
+                    <telerik:GridViewComboBoxColumn Header="City"   ItemsSource="{Binding Source={StaticResource cityViewSource}}" 
+                                                    DataMemberBinding="{Binding Mode=TwoWay, Path=city_id}" 
+                                                    SelectedValueMemberPath="city_id" 
+                                                    DisplayMemberPath="city"  />
+                    <telerik:GridViewDataColumn Header="Address" DataMemberBinding="{Binding address}"  />
+                    <telerik:GridViewDataColumn Header="Phone" DataMemberBinding="{Binding phone}"  />
+                    <telerik:GridViewDataColumn Header="Prepaid Sum" DataMemberBinding="{Binding pre_paid_sum}"  />
+                    <telerik:GridViewDataColumn Header="Paid sum" DataMemberBinding="{Binding paid_sum}"  />
+                    <telerik:GridViewDataColumn Header="Rings" DataMemberBinding="{Binding count_of_rings}"  />
+
+                    <telerik:GridViewComboBoxColumn Header="Category"   ItemsSource="{Binding Source={StaticResource exhcategoryViewSource}}" 
+                                                    DataMemberBinding="{Binding Mode=TwoWay, Path=exhib_categoryID}" 
+                                                    SelectedValueMemberPath="exhib_categoryID" 
+                                                    DisplayMemberPath="exhib_category"  />
+
+                    <telerik:GridViewComboBoxColumn Header="Status"   ItemsSource="{Binding Source={StaticResource ExhibitionStatusViewSource}}" 
+                                                    DataMemberBinding="{Binding Mode=TwoWay, Path=exhib_status}" 
+                                                    SelectedValueMemberPath="ExhibitionStatusEnum" 
+                                                    DisplayMemberPath="ExhibitionStatus"  />
+
+
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+        </Grid>
+
+    </Grid>
+</UserControl>

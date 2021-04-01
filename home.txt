@@ -1,0 +1,513 @@
+<UserControl x:Class="KinoUI.Pages.Home"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:local="clr-namespace:KinoUI"
+             xmlns:mymodel="clr-namespace:KinoUI.Model"
+             mc:Ignorable="d" >
+    <UserControl.Resources>
+        <Style x:Key="TransitionButton" TargetType="telerik:RadButton">
+            <Setter Property="Background" Value="{x:Null}" />
+            <Setter Property="BorderBrush" Value="{x:Null}" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="telerik:RadButton">
+                        <Grid x:Name="Root">
+                            <ContentPresenter />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <local:HalfConverter x:Key="halfConverter"/>
+
+        <LinearGradientBrush x:Key="borderGradientbrush">
+            <GradientStop Color="#FFF79494" Offset="0"/>
+            <GradientStop Color="#FF834C4C" Offset="1"/>
+            <GradientStop Color="#FFF5EBEB" Offset="0.494"/>
+        </LinearGradientBrush>
+
+
+        <Border x:Key="imgFCI" x:Name="brdrFCI" MouseMove="Image_MouseMove" CornerRadius="10" BorderThickness="2" Background="Transparent" BorderBrush="{StaticResource borderGradientbrush}">
+            <Image  Source="../Pages/images/fci1.gif" MouseLeftButtonDown="Image_MouseLeftButtonDown" Margin="10"></Image>
+        </Border>
+
+        <Border x:Key="imgPersons" x:Name="brdrPeeson" MouseMove="Image_MouseMove" CornerRadius="10" BorderThickness="2" Background="Transparent" BorderBrush="{StaticResource borderGradientbrush}">
+            <Image  Source="../Pages/images/bd_icon.png" MouseLeftButtonDown="Image_MouseLeftButtonDown" Margin="10"></Image>
+        </Border>
+
+        <Border x:Key="imgGlobe" x:Name="brdrGlobe" MouseMove="Image_MouseMove" CornerRadius="10" BorderThickness="2" Background="Transparent" BorderBrush="{StaticResource borderGradientbrush}"  >
+                <Image  Source="../Pages/images/globe.png" MouseLeftButtonDown="Image_MouseLeftButtonDown"  Margin="10"></Image>
+        </Border>
+
+        <!--<Border x:Key="imgGlobe" CornerRadius="10" BorderThickness="2" Background="Transparent" BorderBrush="{StaticResource borderGradientbrush}" >
+            <Canvas Background="Transparent">
+                <Image  Source="../Pages/images/globe.png" MouseLeftButtonDown="Image_MouseLeftButtonDown" Margin="10" Width="170"></Image>
+                <TextBlock Text="Geography" Canvas.Left="{Binding  RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Canvas}}, Converter={StaticResource halfConverter}, ConverterParameter=Width}" Canvas.Top="70" FontSize="24" TextWrapping="Wrap" >
+                    <TextBlock.Foreground>
+                        <RadialGradientBrush>
+                            <GradientStop Color="#FF850404" Offset="0"/>
+                            <GradientStop Color="#FF9B0909" Offset="1"/>
+                            <GradientStop Color="White" Offset="0.502"/>
+                        </RadialGradientBrush>
+                    </TextBlock.Foreground>
+
+                    <TextBlock.RenderTransform>
+                    <ScaleTransform/>
+                </TextBlock.RenderTransform>
+
+                    <TextBlock.Triggers>
+                    <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard Name="ExpandText">
+                                <Storyboard>
+                                    <DoubleAnimation 
+                                        Storyboard.TargetProperty="RenderTransform.ScaleX"
+                                        To="1.5"
+                                        Duration="0:0:5"
+                                        AutoReverse="True"
+                                        RepeatBehavior="Forever" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </TextBlock.Triggers>
+                </TextBlock>
+            </Canvas>
+
+        </Border>-->
+
+        <Border x:Key="imgDirectories" x:Name="brdrDeirectories" CornerRadius="10" BorderThickness="2" Background="Transparent" BorderBrush="{StaticResource borderGradientbrush}" MouseMove="Image_MouseMove">
+            <Image  Source="../Pages/images/directory-icon.png" MouseLeftButtonDown="Image_MouseLeftButtonDown" Margin="10" ></Image>
+        </Border>
+
+        <Border x:Key="imgbreeds3" x:Name="brdrBreeds" MouseMove="Image_MouseMove" CornerRadius="10" BorderThickness="2" Background="Transparent" BorderBrush="{StaticResource borderGradientbrush}">
+            <Image  Source="../Pages/images/breeds3.png" MouseLeftButtonDown="Image_MouseLeftButtonDown" Margin="10"></Image>
+        </Border>
+
+        <Border x:Key="imgkennelclub" x:Name="brdrKennelClub" MouseMove="Image_MouseMove" CornerRadius="10" BorderThickness="2" Background="Transparent" BorderBrush="{StaticResource borderGradientbrush}">
+            <Image  Source="../Pages/images/kennelclub.png" MouseLeftButtonDown="Image_MouseLeftButtonDown" Margin="10"></Image>
+        </Border>
+
+        <Border x:Key="imgCACIB" x:Name="brdrCACIB" MouseMove="Image_MouseMove" CornerRadius="10" BorderThickness="2" Background="Transparent" BorderBrush="{StaticResource borderGradientbrush}">
+            <Image  Source="../Pages/images/cacib_10.jpg" MouseLeftButtonDown="Image_MouseLeftButtonDown" Margin="10"></Image>
+        </Border>
+
+        <Border x:Key="imgPrize" x:Name="brdPrize" MouseMove="Image_MouseMove" CornerRadius="10" BorderThickness="2" Background="Transparent" BorderBrush="{StaticResource borderGradientbrush}">
+            <Image  Source="../Pages/images/Prize.png" MouseLeftButtonDown="Image_MouseLeftButtonDown" Margin="10"></Image>
+        </Border>
+
+        
+
+        <mymodel:TransitionItems x:Key="Medalists">
+            <mymodel:TransitionItems.MyTiles>
+                <mymodel:MyTile Photo="../Pages/images/bd_icon.jpg" Width="341" Height="145"/>
+                <mymodel:MyTile Photo="../Pages/images/bd_icon.jpg" Width="341" Height="145"/>
+            </mymodel:TransitionItems.MyTiles>
+            <mymodel:TransitionItems.Transitions>
+                <mymodel:TransitionSet>
+                    <mymodel:TransitionSet.Transition>
+                        <telerik:PerspectiveRotationTransition Direction="Right">
+                            <telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                            <telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                        </telerik:PerspectiveRotationTransition>
+                    </mymodel:TransitionSet.Transition>
+                </mymodel:TransitionSet>
+            </mymodel:TransitionItems.Transitions>
+        </mymodel:TransitionItems>
+        <mymodel:TransitionItems x:Key="FirstPlace_Men">
+            <mymodel:TransitionItems.MyTiles>
+                <mymodel:MyTile  Photo="images\breeds.jpg" Width="170" Height="145"/>
+                <mymodel:MyTile   Width="170" Height="145">
+
+                </mymodel:MyTile>
+
+            </mymodel:TransitionItems.MyTiles>
+            <mymodel:TransitionItems.Transitions>
+                <mymodel:TransitionSet>
+                    <mymodel:TransitionSet.Transition>
+                        <telerik:PerspectiveRotationTransition Direction="Left" NewPlaneCenterOfRotationX="0" OldPlaneCenterOfRotationX="1">
+                            <telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                            <telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                        </telerik:PerspectiveRotationTransition>
+                    </mymodel:TransitionSet.Transition>
+                </mymodel:TransitionSet>
+            </mymodel:TransitionItems.Transitions>
+        </mymodel:TransitionItems>
+        <mymodel:TransitionItems x:Key="SecondPlace_Men">
+            <mymodel:TransitionItems.MyTiles>
+                <mymodel:MyTile  Photo="images\breeds2.jpg" Width="170" Height="145"/>
+                <mymodel:MyTile  Photo="images\breeds2.jpg" Width="170" Height="145"/>
+            </mymodel:TransitionItems.MyTiles>
+            <mymodel:TransitionItems.Transitions>
+                <mymodel:TransitionSet>
+                    <mymodel:TransitionSet.Transition>
+                        <telerik:PerspectiveRotationTransition Direction="Left" NewPlaneCenterOfRotationZ="0.4" OldPlaneCenterOfRotationZ="0.4" RotationLength="90">
+                            <telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                            <telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                        </telerik:PerspectiveRotationTransition>
+                    </mymodel:TransitionSet.Transition>
+                </mymodel:TransitionSet>
+            </mymodel:TransitionItems.Transitions>
+        </mymodel:TransitionItems>
+        <mymodel:TransitionItems x:Key="ThirdPlace_Men">
+            <mymodel:TransitionItems.MyTiles>
+                <mymodel:MyTile  Photo="images\breeds3.jpg" Width="170" Height="145" />
+                <mymodel:MyTile  Photo="images\breeds3.jpg" Width="170" Height="145"/>
+            </mymodel:TransitionItems.MyTiles>
+            <mymodel:TransitionItems.Transitions>
+                <mymodel:TransitionSet>
+                    <mymodel:TransitionSet.Transition>
+                        <telerik:PerspectiveRotationTransition Direction="Left" NewPlaneCenterOfRotationZ="-0.15" OldPlaneCenterOfRotationZ="-0.15">
+                            <telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                            <telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                        </telerik:PerspectiveRotationTransition>
+                    </mymodel:TransitionSet.Transition>
+                </mymodel:TransitionSet>
+            </mymodel:TransitionItems.Transitions>
+        </mymodel:TransitionItems>
+        <mymodel:TransitionItems x:Key="Photo_Men">
+            <mymodel:TransitionItems.MyTiles>
+                <mymodel:MyTile  Photo="images\cacib_10.jpg" Width="170" Height="145" />
+                <mymodel:MyTile  Photo="images\cacib_10.jpg" Width="170" Height="145"/>
+            </mymodel:TransitionItems.MyTiles>
+            <mymodel:TransitionItems.Transitions>
+                <mymodel:TransitionSet>
+                    <mymodel:TransitionSet.Transition>
+                        <telerik:PerspectiveRotationTransition Direction="Right" NewPlaneCenterOfRotationZ="-0.25" OldPlaneCenterOfRotationZ="-0.25">
+                            <telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                            <telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                <CubicEase EasingMode="EaseInOut" />
+                            </telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                        </telerik:PerspectiveRotationTransition>
+                    </mymodel:TransitionSet.Transition>
+                </mymodel:TransitionSet>
+            </mymodel:TransitionItems.Transitions>
+        </mymodel:TransitionItems>
+        <mymodel:TransitionItems x:Key="Medalists_Women">
+            <mymodel:TransitionItems.MyTiles>
+                <mymodel:MyTile Photo="images\directory-icon.png" Width="170" Height="291" />
+                <mymodel:MyTile Photo="images\directory-icon.png" Width="170" Height="291"/>
+            </mymodel:TransitionItems.MyTiles>
+            <mymodel:TransitionItems.Transitions>
+                <mymodel:TransitionSet>
+                    <mymodel:TransitionSet.Transition>
+                        <telerik:FlipWarpTransition />
+                    </mymodel:TransitionSet.Transition>
+                </mymodel:TransitionSet>
+            </mymodel:TransitionItems.Transitions>
+        </mymodel:TransitionItems>
+        <mymodel:TransitionItems x:Key="FirstPlace_Women">
+            <mymodel:TransitionItems.MyTiles>
+                <mymodel:MyTile  Photo="images\dog-breeds.jpg" Width="170" Height="145" />
+                <mymodel:MyTile  Photo="images\dog-breeds.jpg" Width="170" Height="145" />
+            </mymodel:TransitionItems.MyTiles>
+            <mymodel:TransitionItems.Transitions>
+                <mymodel:TransitionSet>
+                    <mymodel:TransitionSet.Transition>
+                        <telerik:MotionBlurredZoomTransition />
+                    </mymodel:TransitionSet.Transition>
+                </mymodel:TransitionSet>
+            </mymodel:TransitionItems.Transitions>
+        </mymodel:TransitionItems>
+        <mymodel:TransitionItems x:Key="SecondPlace_Women">
+            <mymodel:TransitionItems.MyTiles>
+                <mymodel:MyTile  Photo="images\FCI-certificate.jpg" Width="170" Height="145" />
+                <mymodel:MyTile  Photo="images\FCI-certificate.jpg" Width="170" Height="145"/>
+            </mymodel:TransitionItems.MyTiles>
+            <mymodel:TransitionItems.Transitions>
+                <mymodel:TransitionSet>
+                    <mymodel:TransitionSet.Transition>
+                        <telerik:PixelateTransition />
+                    </mymodel:TransitionSet.Transition>
+                </mymodel:TransitionSet>
+            </mymodel:TransitionItems.Transitions>
+        </mymodel:TransitionItems>
+        <mymodel:TransitionItems x:Key="ThirdPlace_Women">
+            <mymodel:TransitionItems.MyTiles>
+                <mymodel:MyTile  Photo="images\fci1.gif" Width="170" Height="145" />
+                <mymodel:MyTile  Photo="images\pappy.jpg" Width="170" Height="145" />
+            </mymodel:TransitionItems.MyTiles>
+            <mymodel:TransitionItems.Transitions>
+                <mymodel:TransitionSet>
+                    <mymodel:TransitionSet.Transition>
+                        <telerik:RollTransition />
+                    </mymodel:TransitionSet.Transition>
+                </mymodel:TransitionSet>
+            </mymodel:TransitionItems.Transitions>
+        </mymodel:TransitionItems>
+        <mymodel:TransitionItems x:Key="Photo_Women">
+            <mymodel:TransitionItems.MyTiles>
+                <mymodel:MyTile  Photo="images\kennelclub.jpg" Width="170" Height="145" />
+                <mymodel:MyTile  Photo="images\Priz.jpg" Width="170" Height="145" />
+            </mymodel:TransitionItems.MyTiles>
+            <mymodel:TransitionItems.Transitions>
+                <mymodel:TransitionSet>
+                    <mymodel:TransitionSet.Transition>
+                        <telerik:WaveTransition />
+                    </mymodel:TransitionSet.Transition>
+                </mymodel:TransitionSet>
+            </mymodel:TransitionItems.Transitions>
+        </mymodel:TransitionItems>
+
+        <DataTemplate x:Key="ItemTemplate">
+            <Image Source="{Binding Photo}" HorizontalAlignment="Left" VerticalAlignment="Top" Stretch="Fill"/>
+        </DataTemplate>
+
+    </UserControl.Resources>
+    <StackPanel Orientation="Vertical"  >
+
+        <StackPanel.Background>
+        <ImageBrush ImageSource="images\Logo.png" Stretch="Fill" />
+    </StackPanel.Background>
+
+
+        <Grid Grid.Column="1" Margin="20,10.10,10,0" Grid.IsSharedSizeScope="True" VerticalAlignment="Top" Height="85" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" SharedSizeGroup="Row"></RowDefinition>
+                <RowDefinition SharedSizeGroup="Row"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBox Name="txtCurrentMenu" FontSize="24" BorderBrush="Transparent" Background="Transparent" >Click on the Menu Icon</TextBox>
+            <Rectangle Grid.Row="1" RenderTransformOrigin="1,0.5">
+                <Rectangle.Fill>
+                    <VisualBrush Visual="{Binding ElementName=txtCurrentMenu}"></VisualBrush>
+                </Rectangle.Fill>
+                <Rectangle.OpacityMask>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0.3" Color="Transparent"></GradientStop>
+                        <GradientStop Offset="1" Color="#44000000"></GradientStop>
+                    </LinearGradientBrush>
+                </Rectangle.OpacityMask>
+                <Rectangle.RenderTransform>
+                    <ScaleTransform ScaleY="-1"></ScaleTransform>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+        </Grid>
+
+        <Grid Style="{StaticResource ContentRoot}" >
+          
+            <StackPanel x:Name="LayoutRoot" Orientation="Horizontal" >
+                <Grid>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="150" />
+                                <RowDefinition Height="150" />
+                                <RowDefinition Height="150" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50*"/>
+                                <ColumnDefinition Width="50*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!--<telerik:RadButton Style="{StaticResource TransitionButton}" Command="{Binding SelectNext}" Grid.ColumnSpan="2" DataContext="{StaticResource Medalists}">
+                            <telerik:RadTransitionControl Transition="{Binding CurrentTransition}" ContentTemplate="{StaticResource ItemTemplate}" Content="{Binding SelectedMyTile}" Duration="0:0:0.75" />
+                        </telerik:RadButton>-->
+
+                            <telerik:RadTransitionControl x:Name="RadTransitionControl1" Content="{StaticResource imgDirectories}" Margin="5">
+
+                                <telerik:RadTransitionControl.Transition>
+                                    <!--<telerik:PerspectiveRotationTransition Direction="Left" NewPlaneCenterOfRotationZ="0.4" OldPlaneCenterOfRotationZ="0.4" RotationLength="90">
+                                    <telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                        <CubicEase EasingMode="EaseInOut" />
+                                    </telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                    <telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                        <CubicEase EasingMode="EaseInOut" />
+                                    </telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                </telerik:PerspectiveRotationTransition>-->
+                                    <telerik:PerspectiveRotationTransition Direction="Left" NewPlaneCenterOfRotationX="0" OldPlaneCenterOfRotationX="1">
+                                        <telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                            <CubicEase EasingMode="EaseInOut" />
+                                        </telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                        <telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                            <CubicEase EasingMode="EaseInOut" />
+                                        </telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                    </telerik:PerspectiveRotationTransition>
+                                </telerik:RadTransitionControl.Transition>
+                            </telerik:RadTransitionControl>
+
+                            <telerik:RadTransitionControl x:Name="RadTransitionControlGlobe" Grid.Column="1" Content="{StaticResource imgGlobe}" Margin="5">
+
+                                <telerik:RadTransitionControl.Transition>
+                                    <telerik:PerspectiveRotationTransition Direction="Left" NewPlaneCenterOfRotationZ="0.4" OldPlaneCenterOfRotationZ="0.4" RotationLength="90">
+                                        <telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                            <CubicEase EasingMode="EaseInOut" />
+                                        </telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                        <telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                            <CubicEase EasingMode="EaseInOut" />
+                                        </telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                    </telerik:PerspectiveRotationTransition>
+                                </telerik:RadTransitionControl.Transition>
+                            </telerik:RadTransitionControl>
+
+                            <telerik:RadTransitionControl x:Name="RadTransitionControlreeds" Grid.Row="1" Grid.ColumnSpan="2" Content="{StaticResource imgbreeds3}" Margin="5">
+
+                                <telerik:RadTransitionControl.Transition>
+                                    <!--<telerik:PerspectiveRotationTransition Direction="Left" NewPlaneCenterOfRotationZ="0.4" OldPlaneCenterOfRotationZ="0.4" RotationLength="90">
+                                    <telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                        <CubicEase EasingMode="EaseInOut" />
+                                    </telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                    <telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                        <CubicEase EasingMode="EaseInOut" />
+                                    </telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                </telerik:PerspectiveRotationTransition>-->
+                                    <telerik:PerspectiveRotationTransition Direction="Right">
+                                        <telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                            <CubicEase EasingMode="EaseInOut" />
+                                        </telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                        <telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                            <CubicEase EasingMode="EaseInOut" />
+                                        </telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                    </telerik:PerspectiveRotationTransition>
+                                </telerik:RadTransitionControl.Transition>
+                            </telerik:RadTransitionControl>
+
+                            <telerik:RadTransitionControl x:Name="RadTransitionControlPersons" Grid.Row="2" Grid.Column="1"  Content="{StaticResource imgPersons}" Margin="5">
+
+                                <telerik:RadTransitionControl.Transition>
+                                    <telerik:PerspectiveRotationTransition Direction="Left" NewPlaneCenterOfRotationZ="0.4" OldPlaneCenterOfRotationZ="0.4" RotationLength="90">
+                                        <telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                            <CubicEase EasingMode="EaseInOut" />
+                                        </telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                        <telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                            <CubicEase EasingMode="EaseInOut" />
+                                        </telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                    </telerik:PerspectiveRotationTransition>
+                                </telerik:RadTransitionControl.Transition>
+                            </telerik:RadTransitionControl>
+
+                        </Grid>
+
+                    </StackPanel>
+                </Grid>
+
+                <Grid Margin="5,5,5,5">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="300" />
+                                <RowDefinition Height="150" />
+
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="170*"/>
+                                <ColumnDefinition Width="170*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <telerik:RadTransitionControl x:Name="RadTransitionControlKennelClubs" Grid.ColumnSpan="2"  
+                                                      Content="{StaticResource imgkennelclub}" Margin="10" Grid.Row="1">
+
+                                <telerik:RadTransitionControl.Transition>
+                                    <telerik:RollTransition />
+                                </telerik:RadTransitionControl.Transition>
+                            </telerik:RadTransitionControl>
+
+                            <telerik:RadTransitionControl x:Name="RadTransitionControlFCI" Grid.Column="1"   
+                                                      Content="{StaticResource imgFCI}" Margin="10,10,10,10" >
+
+                                <telerik:RadTransitionControl.Transition>
+                                    <telerik:RollTransition />
+                                </telerik:RadTransitionControl.Transition>
+                            </telerik:RadTransitionControl>
+
+                            <telerik:RadTransitionControl x:Name="RadTransitionControlPrizes"  HorizontalAlignment="Left" Margin="10,100,10,10" 
+                                                      Content="{StaticResource imgPrize}" >
+
+                                <!--<telerik:RadTransitionControl.Transition>
+                                    <telerik:RollTransition />
+                                </telerik:RadTransitionControl.Transition>-->
+                                <telerik:RadTransitionControl.Transition>
+                                    <telerik:PerspectiveRotationTransition Direction="Right" NewPlaneCenterOfRotationZ="-0.25" OldPlaneCenterOfRotationZ="-0.25">
+                                        <telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                            <CubicEase EasingMode="EaseInOut" />
+                                        </telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                        <telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                            <CubicEase EasingMode="EaseInOut" />
+                                        </telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                    </telerik:PerspectiveRotationTransition>
+                                </telerik:RadTransitionControl.Transition>
+                            </telerik:RadTransitionControl>
+                        </Grid>
+
+                    </StackPanel>
+                </Grid>
+
+
+                <Grid Margin="5,5,5,5">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="300" />
+                                <RowDefinition Height="200" />
+
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="170*"/>
+                                <ColumnDefinition Width="170*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <telerik:RadTransitionControl x:Name="RadTransitionControlCACIB"  HorizontalAlignment="Right" Margin="10,100,10,10" 
+                                                      Content="{StaticResource imgCACIB}" >
+
+                                <!--<telerik:RadTransitionControl.Transition>
+                                    <telerik:RollTransition />
+                                </telerik:RadTransitionControl.Transition>-->
+                                <telerik:RadTransitionControl.Transition>
+                                    <telerik:PerspectiveRotationTransition Direction="Left" NewPlaneCenterOfRotationZ="-0.25" OldPlaneCenterOfRotationZ="-0.25">
+                                        <telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                            <CubicEase EasingMode="EaseInOut" />
+                                        </telerik:PerspectiveRotationTransition.NewPlaneEasing>
+                                        <telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                            <CubicEase EasingMode="EaseInOut" />
+                                        </telerik:PerspectiveRotationTransition.OldPlaneEasing>
+                                    </telerik:PerspectiveRotationTransition>
+                                </telerik:RadTransitionControl.Transition>
+                            </telerik:RadTransitionControl>
+
+                            <!--<telerik:RadTransitionControl x:Name="RadTransitionControlExhibition" Grid.ColumnSpan="2"  
+                                                      Content="{StaticResource imgkennelclub}" Margin="10" Grid.Row="1">
+
+                                <telerik:RadTransitionControl.Transition>
+                                    <telerik:RollTransition />
+                                </telerik:RadTransitionControl.Transition>
+                            </telerik:RadTransitionControl>-->
+
+                            
+                        </Grid>
+
+                    </StackPanel>
+                </Grid>
+
+
+                <TextBlock Text="source: kinolog.az" HorizontalAlignment="Right" Foreground="#FFD4D6D6"
+            FontSize="10" VerticalAlignment="Top" />
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+    
+</UserControl>

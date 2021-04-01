@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="KinoUI.Content.Directories.FirstLevelTemplateUC"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:telerikControls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+             xmlns:data="clr-namespace:KinoDataLibrary;assembly=KinoDataLibrary"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="322">
+    <UserControl.Resources>
+        <data:KinoDataSet x:Key="kinoDataSet" />
+        <CollectionViewSource x:Key="firstLevelViewSource" Source="{Binding Path=tbl_firstlevel_achive_templates, Source={StaticResource kinoDataSet}}" />
+        <CollectionViewSource x:Key="ageGroupViewSource" Source="{Binding Path=tbl_agegroup, Source={StaticResource kinoDataSet}}" />
+        <CollectionViewSource x:Key="sexViewSource" Source="{Binding Path=tbl_sex_type, Source={StaticResource kinoDataSet}}" />
+        <CollectionViewSource x:Key="exhStatusViewSource" Source="{Binding Path=tbl_exh_status, Source={StaticResource kinoDataSet}}" />
+        <CollectionViewSource x:Key="exhibCategoryViewSource" Source="{Binding Path=tbl_exhib_category, Source={StaticResource kinoDataSet}}" />
+    </UserControl.Resources>
+    <Grid DataContext="{StaticResource firstLevelViewSource}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+        </Grid.RowDefinitions>
+ 
+            <telerik:RadMenu>
+            <Border BorderThickness="2" CornerRadius="2"  BorderBrush="{DynamicResource BlackGradientbrush}">
+                  <telerik:RadMenuItem  x:Name="mnuSave" Click="mnuSave_Click">
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/Pages/images/apply_y.png"  />
+                    </telerik:RadMenuItem.Icon>
+                </telerik:RadMenuItem>              
+            </Border>
+
+
+            </telerik:RadMenu>
+ 
+        <telerik:RadGridView x:Name="grdFLevelTemplate" AutoGenerateColumns="False" Grid.Row="1" ItemsSource="{Binding }" RowValidating="gridview_RowValidating"
+                             NewRowPosition="Top" telerikControls:StyleManager.Theme="Transparent"   RowStyleSelector="{StaticResource modifiedRowStyle}" Deleting="grdFLevelTemplate_Deleting" >
+            <telerik:RadGridView.Columns>
+                <!--<telerik:GridViewDataColumn Header="Age Group" DataMemberBinding="{Binding agegroup_id}" Width="50*" />-->
+                <telerik:GridViewComboBoxColumn Header="Age Group"   ItemsSource="{Binding Source={StaticResource ageGroupViewSource}}"
+                                                    x:Name="cmbAgeGroup" 
+                                                    IsReadOnly="False"
+                                                    DataMemberBinding="{Binding Mode=TwoWay, Path=agegroup_id}" 
+                                                    SelectedValueMemberPath="agegroup_id" 
+                                                    DisplayMemberPath="agegroup"  />
+
+                <telerik:GridViewComboBoxColumn Header="Sex"   ItemsSource="{Binding Source={StaticResource sexViewSource}}"
+                                                    x:Name="cmbSex" 
+                                                    IsReadOnly="False"
+                                                    DataMemberBinding="{Binding Mode=TwoWay, Path=sex_type_id}" 
+                                                    SelectedValueMemberPath="sex_type_id" 
+                                                    DisplayMemberPath="sex"  />
+
+                <telerik:GridViewComboBoxColumn Header="Exh Category"   ItemsSource="{Binding Source={StaticResource exhibCategoryViewSource}}"
+                                                    x:Name="cmbExhCategory" 
+                                                    IsReadOnly="False"
+                                                    DataMemberBinding="{Binding Mode=TwoWay, Path=exhib_categoryID}" 
+                                                    SelectedValueMemberPath="exhib_categoryID" 
+                                                    DisplayMemberPath="exhib_category"  />
+
+                <telerik:GridViewComboBoxColumn Header="Status"   ItemsSource="{Binding Source={StaticResource exhStatusViewSource}}"
+                                                    x:Name="cmbExhStatus" 
+                                                    IsReadOnly="False"
+                                                    DataMemberBinding="{Binding Mode=TwoWay, Path=exh_statusid}" 
+                                                    SelectedValueMemberPath="exh_statusid" 
+                                                    DisplayMemberPath="exh_status"  />
+            </telerik:RadGridView.Columns>
+
+        </telerik:RadGridView>
+    </Grid>
+</UserControl>

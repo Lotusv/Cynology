@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="KinoUI.Content.Directories.NationalityUC"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:telerikControls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:data="clr-namespace:KinoDataLibrary;assembly=KinoDataLibrary"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <data:KinoDataSet x:Key="kinoDataSet" />
+        <CollectionViewSource x:Key="nationalityViewSource" Source="{Binding Path=tbl_nationality, Source={StaticResource kinoDataSet}}" />
+    </UserControl.Resources>
+    <Grid DataContext="{StaticResource nationalityViewSource}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+   
+            <telerik:RadMenu>
+            <Border BorderThickness="2" CornerRadius="2"  BorderBrush="{DynamicResource BlackGradientbrush}">
+                   <telerik:RadMenuItem  x:Name="mnuSave" Click="mnuSave_Click">
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/Pages/images/apply_y.png"  />
+                    </telerik:RadMenuItem.Icon>
+                </telerik:RadMenuItem>             
+            </Border>
+
+
+            </telerik:RadMenu>
+
+        <telerik:RadGridView x:Name="grdnationality"  AutoGenerateColumns="False" Grid.Row="1" NewRowPosition="Top" RowStyleSelector="{StaticResource modifiedRowStyle}"
+                             ItemsSource="{Binding}" telerikControls:StyleManager.Theme="Transparent" RowValidating="gridview_RowValidating" Deleting="grdnationality_Deleting">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="Size Type Name" DataMemberBinding="{Binding nationality}" Width="*" />
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+    </Grid>
+</UserControl>

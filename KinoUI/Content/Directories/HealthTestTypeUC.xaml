@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="KinoUI.Content.Directories.HealthTestTypeUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:telerikControls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+              xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:data="clr-namespace:KinoDataLibrary;assembly=KinoDataLibrary"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:my="clr-namespace:KinoUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600">
+    <UserControl.Resources>
+        <data:KinoDataSet x:Key="kinoDataSet" />
+        <CollectionViewSource x:Key="tbl_healthtest_typeViewSource" Source="{Binding Path=tbl_healthtest_type, Source={StaticResource kinoDataSet}}" />
+        <my:IntToBooleanConverter x:Key="intToBoolconverter"/>
+    </UserControl.Resources>
+    <Grid DataContext="{StaticResource tbl_healthtest_typeViewSource}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <telerik:RadMenu>
+            <Border BorderThickness="2" CornerRadius="2"  BorderBrush="{DynamicResource BlackGradientbrush}">
+                <telerik:RadMenuItem x:Name="mnuSave" Click="mnuSave_Click" >
+                    <telerik:RadMenuItem.Icon>
+                        <Image Source="/Pages/images/apply_y.png"  />
+                    </telerik:RadMenuItem.Icon>
+                </telerik:RadMenuItem>
+            </Border>
+        </telerik:RadMenu>
+
+        <telerik:RadGridView x:Name="grdstatuses"  AutoGenerateColumns="False" Grid.Row="1" NewRowPosition="Top" RowStyleSelector="{StaticResource modifiedRowStyle}"
+                             ItemsSource="{Binding}" telerikControls:StyleManager.Theme="Transparent" RowValidating="gridview_RowValidating" Deleting="grdstatuses_Deleting">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="healthtest Type Name" DataMemberBinding="{Binding healthtest_type_name}" Width="200" />
+                <telerik:GridViewDataColumn Header="healthtest Type Code" DataMemberBinding="{Binding healthtest_type_code}" Width="100" />
+                <telerik:GridViewCheckBoxColumn Header="Show In Pedigree" DataMemberBinding= "{Binding showInPedigree}" Width="100" />
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+    </Grid>
+</UserControl>
